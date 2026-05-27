@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Upmanyu Singh — Graphic Designer</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300;1,600&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;700;800&family=Playfair+Display:ital,wght@1,400;1,700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --ink:#06090f;
+  --paper:#f0eeea;
+  --blue:#0af;
+  --blue2:#003eff;
+  --red:#ff2d2d;
+  --gold:#c9a84c;
+  --grid:rgba(0,170,255,.05);
+  --glow:0 0 60px rgba(0,170,255,.4);
+}
+html{scroll-behavior:smooth}
+body{
+  background:var(--ink);
+  color:var(--paper);
+  font-family:'Syne',sans-serif;
+  overflow-x:hidden;
+  cursor:none;
+}
+
+/* ── NOISE OVERLAY ── */
+body::after{
+  content:'';position:fixed;inset:0;z-index:9000;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events:none;opacity:.45;
+}
+
+/* ── GRID ── */
+body::before{
+  content:'';position:fixed;inset:0;z-index:0;
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:60px 60px;pointer-events:none;
+}
+
+/* ── CURSOR ── */
+#mag-cursor{
+  position:fixed;top:0;left:0;z-index:9999;
+  pointer-events:none;
+  mix-blend-mode:difference;
+}
+#mag-cursor .dot{
+  width:8px;height:8px;
+  background:var(--paper);
+  border-radius:50%;
+  transform:translate(-50%,-50%);
+  transition:width .2s,height .2s;
+}
+#mag-cursor .ring{
+  position:absolute;top:0;left:0;
+  width:40px;height:40px;
+  border:1px solid rgba(240,238,234,.6);
+  border-radius:50%;
+  transform:translate(-50%,-50%);
+  transition:width .35s cubic-bezier(.25,.46,.45,.94),height .35s cubic-bezier(.25,.46,.45,.94),border-color .25s;
+}
+body.hovering #mag-cursor .dot{width:0;height:0}
+body.hovering #mag-cursor .ring{width:60px;height:60px;border-color:var(--blue)}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:500;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.4rem 3.5rem;
+  mix-blend-mode:normal;
+}
+nav::after{
+  content:'';position:absolute;inset:0;
+  background:rgba(6,9,15,.6);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(240,238,234,.06);
+  z-index:-1;
+}
+.logo{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:1.6rem;letter-spacing:.18em;
+  color:var(--paper);text-decoration:none;
+}
+.logo em{color:var(--blue);font-style:normal}
+.nav-links{display:flex;gap:2.5rem;list-style:none}
+.nav-links a{
+  font-family:'Space Mono',monospace;
+  font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;
+  color:rgba(240,238,234,.45);text-decoration:none;
+  transition:color .2s;position:relative;
+}
+.nav-links a::after{
+  content:'';position:absolute;left:0;bottom:-3px;
+  width:0;height:1px;background:var(--blue);
+  transition:width .3s;
+}
+.nav-links a:hover{color:var(--paper)}
+.nav-links a:hover::after{width:100%}
+.nav-hire{
+  font-family:'Space Mono',monospace;font-size:.65rem;
+  letter-spacing:.14em;text-transform:uppercase;
+  padding:.55rem 1.4rem;
+  border:1px solid rgba(240,238,234,.2);
+  color:var(--paper);text-decoration:none;
+  transition:background .25s,border-color .25s,color .25s;
+  clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px));
+}
+.nav-hire:hover{background:var(--blue);border-color:var(--blue);color:var(--ink)}
+
+/* ── HERO ── */
+#hero{
+  position:relative;z-index:1;
+  min-height:100vh;
+  display:flex;flex-direction:column;justify-content:center;
+  padding:0 3.5rem;
+  overflow:hidden;
+}
+.hero-bg-word{
+  position:absolute;
+  font-family:'Bebas Neue',sans-serif;
+  font-size:32vw;line-height:1;
+  color:transparent;
+  -webkit-text-stroke:1px rgba(0,170,255,.06);
+  top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  white-space:nowrap;
+  pointer-events:none;
+  letter-spacing:-.02em;
+  user-select:none;
+}
+.hero-eyebrow{
+  font-family:'Space Mono',monospace;
+  font-size:.68rem;letter-spacing:.3em;text-transform:uppercase;
+  color:var(--blue);margin-bottom:1.5rem;
+  opacity:0;animation:slideIn .9s .1s cubic-bezier(.16,1,.3,1) forwards;
+}
+.hero-name-wrap{overflow:hidden;margin-bottom:.2rem}
+.hero-name{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(5rem,13vw,13rem);
+  line-height:.85;letter-spacing:.01em;
+  display:block;
+  transform:translateY(110%);
+  animation:clipUp 1s .25s cubic-bezier(.16,1,.3,1) forwards;
+}
+.hero-name-wrap.second .hero-name{
+  color:transparent;
+  -webkit-text-stroke:1.5px var(--blue);
+  animation-delay:.35s;
+}
+.hero-italic{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1.1rem,2.5vw,2rem);
+  font-style:italic;font-weight:300;
+  color:rgba(240,238,234,.5);
+  margin-top:1rem;
+  opacity:0;animation:slideIn .9s .55s cubic-bezier(.16,1,.3,1) forwards;
+}
+.hero-italic span{color:var(--gold);font-weight:600;font-style:italic}
+.hero-cta-row{
+  display:flex;align-items:center;gap:2rem;margin-top:3rem;
+  opacity:0;animation:slideIn .9s .7s cubic-bezier(.16,1,.3,1) forwards;
+}
+.cta-main{
+  font-family:'Syne',sans-serif;font-weight:700;
+  font-size:.85rem;letter-spacing:.12em;text-transform:uppercase;
+  padding:1rem 2.5rem;
+  background:var(--blue);color:var(--ink);
+  text-decoration:none;
+  clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,12px 100%,0 calc(100% - 12px));
+  transition:box-shadow .3s,transform .3s;
+}
+.cta-main:hover{box-shadow:var(--glow);transform:translateY(-3px)}
+.cta-scroll{
+  font-family:'Space Mono',monospace;font-size:.65rem;
+  letter-spacing:.15em;text-transform:uppercase;
+  color:rgba(240,238,234,.4);text-decoration:none;
+  display:flex;align-items:center;gap:.7rem;
+  transition:color .25s;
+}
+.cta-scroll:hover{color:var(--paper)}
+.cta-scroll::before{
+  content:'';display:block;width:40px;height:1px;
+  background:rgba(240,238,234,.25);
+  transition:width .3s,background .3s;
+}
+.cta-scroll:hover::before{width:60px;background:var(--paper)}
+
+.hero-stats-col{
+  position:absolute;right:3.5rem;bottom:4rem;
+  display:flex;flex-direction:column;gap:2rem;align-items:flex-end;
+  opacity:0;animation:slideIn .9s .85s cubic-bezier(.16,1,.3,1) forwards;
+}
+.hstat-val{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:3rem;line-height:1;color:var(--blue);
+}
+.hstat-lbl{
+  font-family:'Space Mono',monospace;
+  font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;
+  color:rgba(240,238,234,.3);margin-top:.1rem;text-align:right;
+}
+.hero-line{
+  position:absolute;bottom:0;left:3.5rem;
+  width:1px;height:90px;
+  background:linear-gradient(to bottom,transparent,var(--blue));
+  opacity:0;animation:slideIn .9s 1s cubic-bezier(.16,1,.3,1) forwards;
+}
+
+/* ── MARQUEE ── */
+.marquee-wrap{
+  position:relative;z-index:1;
+  overflow:hidden;
+  border-top:1px solid rgba(240,238,234,.07);
+  border-bottom:1px solid rgba(240,238,234,.07);
+  padding:.8rem 0;
+  background:rgba(0,170,255,.04);
+}
+.marquee-track{
+  display:flex;gap:0;
+  animation:marquee 22s linear infinite;
+  width:max-content;
+}
+.marquee-track.rev{animation:marqueeRev 28s linear infinite}
+.marquee-item{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.1rem;font-style:italic;font-weight:300;
+  letter-spacing:.05em;
+  color:rgba(240,238,234,.35);
+  padding:0 2.5rem;
+  white-space:nowrap;
+}
+.marquee-item .sep{color:var(--blue);margin:0 .5rem;font-style:normal}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes marqueeRev{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+
+/* ── ABOUT ── */
+#about{
+  position:relative;z-index:1;
+  display:grid;grid-template-columns:1.1fr 1fr;
+  gap:7rem;align-items:center;
+  padding:8rem 3.5rem;
+}
+.about-left{}
+.about-overline{
+  font-family:'Space Mono',monospace;
+  font-size:.63rem;letter-spacing:.28em;text-transform:uppercase;
+  color:var(--blue);margin-bottom:1.2rem;
+}
+.about-h{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(3.5rem,7vw,7rem);
+  line-height:.88;letter-spacing:.02em;
+  color:var(--paper);
+}
+.about-h .serif-mix{
+  font-family:'Playfair Display',serif;
+  font-style:italic;font-weight:400;
+  font-size:.55em;
+  color:rgba(240,238,234,.55);
+  display:block;letter-spacing:.05em;
+}
+.about-body{
+  font-family:'Syne',sans-serif;font-weight:400;
+  font-size:1rem;line-height:1.85;
+  color:rgba(240,238,234,.6);
+  margin-top:2rem;
+}
+.about-body strong{
+  font-family:'Cormorant Garamond',serif;
+  font-weight:600;font-style:italic;
+  color:var(--paper);font-size:1.15em;
+}
+.skills-row{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:2.2rem}
+.sk{
+  font-family:'Space Mono',monospace;font-size:.62rem;
+  letter-spacing:.08em;text-transform:uppercase;
+  padding:.4rem .9rem;
+  border:1px solid rgba(240,238,234,.12);
+  color:rgba(240,238,234,.55);
+  transition:all .2s;
+}
+.sk:hover{border-color:var(--blue);color:var(--blue)}
+
+.about-right{}
+.about-frame-big{
+  width:100%;aspect-ratio:3/4;
+  background:linear-gradient(135deg,#080f1e,#040810);
+  border:1px solid rgba(0,170,255,.15);
+  clip-path:polygon(0 0,calc(100% - 28px) 0,100% 28px,100% 100%,28px 100%,0 calc(100% - 28px));
+  display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+}
+.about-frame-big::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at 30% 40%,rgba(0,170,255,.1) 0%,transparent 60%);
+}
+.af-letters{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:12rem;color:rgba(0,170,255,.06);
+  letter-spacing:-.04em;user-select:none;
+  animation:pulse 4s ease-in-out infinite;
+}
+@keyframes pulse{0%,100%{opacity:.4}50%{opacity:.9}}
+.af-corner{position:absolute;width:22px;height:22px;border-color:var(--blue);border-style:solid}
+.af-corner.tl{top:-1px;left:-1px;border-width:2px 0 0 2px}
+.af-corner.br{bottom:-1px;right:-1px;border-width:0 2px 2px 0}
+.af-tag{
+  position:absolute;bottom:1.5rem;left:1.5rem;
+  font-family:'Space Mono',monospace;font-size:.6rem;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:rgba(0,170,255,.5);
+}
+
+/* ── WORK ── */
+#work{position:relative;z-index:1;padding:8rem 3.5rem}
+.work-head{
+  display:flex;justify-content:space-between;align-items:flex-end;
+  margin-bottom:4rem;
+}
+.work-h-left .sec-label{
+  font-family:'Space Mono',monospace;
+  font-size:.63rem;letter-spacing:.28em;text-transform:uppercase;
+  color:var(--blue);margin-bottom:.7rem;
+}
+.work-h-left h2{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(3rem,6vw,6rem);
+  line-height:.9;color:var(--paper);
+}
+.work-h-left h2 em{
+  font-family:'Playfair Display',serif;
+  font-style:italic;font-weight:400;
+  color:rgba(240,238,234,.4);font-size:.6em;
+}
+.work-count{
+  font-family:'Cormorant Garamond',serif;
+  font-size:5rem;font-weight:300;
+  color:rgba(0,170,255,.15);
+  line-height:1;
+}
+
+/* PROJECTS LAYOUT — intentionally broken grid */
+.projects{display:grid;grid-template-columns:repeat(12,1fr);gap:1.2rem}
+.pj{
+  background:#080f1e;
+  border:1px solid rgba(240,238,234,.07);
+  overflow:hidden;position:relative;
+  transition:border-color .4s,transform .4s;
+  group:true;
+}
+.pj:hover{border-color:rgba(0,170,255,.5);transform:translateY(-6px)}
+.pj:nth-child(1){grid-column:span 7}
+.pj:nth-child(2){grid-column:span 5}
+.pj:nth-child(3){grid-column:span 4}
+.pj:nth-child(4){grid-column:span 8}
+.pj:nth-child(5){grid-column:span 6}
+.pj:nth-child(6){grid-column:span 6}
+
+.pj-thumb{
+  height:240px;position:relative;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+}
+.pj-thumb::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(to bottom,transparent 30%,#080f1e 100%);
+}
+.pj-ph{
+  width:100%;height:100%;display:flex;align-items:center;justify-content:center;
+  font-family:'Bebas Neue',sans-serif;
+  font-size:4rem;letter-spacing:.08em;
+  transition:transform .5s ease;
+}
+.pj:hover .pj-ph{transform:scale(1.06)}
+
+/* Per-project palette */
+.pj.auto .pj-ph{background:linear-gradient(135deg,#12080a,#251018);color:rgba(255,80,30,.2)}
+.pj.film .pj-ph{background:linear-gradient(135deg,#080010,#12001f);color:rgba(160,60,255,.2)}
+.pj.apple1 .pj-ph{background:linear-gradient(145deg,#0d0d0d,#1a1a1a);color:rgba(220,220,220,.18)}
+.pj.apple2 .pj-ph{background:linear-gradient(145deg,#080d12,#0c1420);color:rgba(0,170,255,.2)}
+.pj.nike .pj-ph{background:linear-gradient(135deg,#060a0f,#0a1018);color:rgba(240,240,240,.15)}
+.pj.boat .pj-ph{background:linear-gradient(135deg,#050010,#0a001a);color:rgba(0,100,255,.25)}
+
+.pj-body{padding:1.5rem}
+.pj-cat{
+  font-family:'Space Mono',monospace;font-size:.58rem;
+  letter-spacing:.2em;text-transform:uppercase;
+  color:var(--blue);margin-bottom:.4rem;
+}
+.pj-title{
+  font-family:'Syne',sans-serif;font-weight:800;
+  font-size:1.35rem;color:var(--paper);margin-bottom:.4rem;
+  letter-spacing:-.01em;
+}
+.pj-desc{
+  font-family:'Syne',sans-serif;font-weight:400;
+  font-size:.82rem;line-height:1.65;
+  color:rgba(240,238,234,.4);
+}
+.pj-arrow{
+  display:inline-flex;align-items:center;gap:.35rem;
+  margin-top:1rem;
+  font-family:'Space Mono',monospace;font-size:.6rem;
+  letter-spacing:.12em;text-transform:uppercase;
+  color:var(--blue);text-decoration:none;
+  transition:gap .22s;
+}
+.pj-arrow:hover{gap:.6rem}
+.pj-arrow::after{content:'↗'}
+
+/* ── DEVSOC ── */
+#devsoc{
+  position:relative;z-index:1;
+  overflow:hidden;
+  padding:0;
+}
+.devsoc-inner{
+  display:grid;grid-template-columns:1fr 1fr;
+  min-height:600px;
+}
+.devsoc-left{
+  background:linear-gradient(135deg,#0a1628 0%,#030810 100%);
+  padding:6rem 3.5rem;
+  display:flex;flex-direction:column;justify-content:center;
+  border-right:1px solid rgba(0,170,255,.12);
+  position:relative;overflow:hidden;
+}
+.devsoc-left::before{
+  content:'';position:absolute;top:-50%;left:-30%;
+  width:600px;height:600px;border-radius:50%;
+  background:radial-gradient(circle,rgba(0,100,255,.12) 0%,transparent 65%);
+  pointer-events:none;
+}
+.ds-badge{
+  display:inline-flex;align-items:center;gap:.6rem;
+  font-family:'Space Mono',monospace;font-size:.62rem;
+  letter-spacing:.2em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:1.5rem;
+  border:1px solid rgba(201,168,76,.25);
+  padding:.4rem .9rem;width:fit-content;
+}
+.ds-badge::before{content:'★';font-size:.5rem}
+.ds-h{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(2.5rem,5vw,5rem);
+  line-height:.88;color:var(--paper);
+  margin-bottom:.8rem;
+}
+.ds-h .accent{color:var(--blue);display:block}
+.ds-sub{
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;font-size:1.25rem;font-weight:300;
+  color:rgba(240,238,234,.5);
+  margin-bottom:2rem;line-height:1.6;
+}
+.ds-sub strong{color:var(--gold);font-weight:600}
+.ds-body{
+  font-family:'Syne',sans-serif;font-size:.95rem;
+  line-height:1.8;color:rgba(240,238,234,.6);
+  margin-bottom:2rem;
+}
+.ds-tags{display:flex;flex-wrap:wrap;gap:.5rem}
+.ds-tag{
+  font-family:'Space Mono',monospace;font-size:.6rem;
+  letter-spacing:.08em;padding:.35rem .85rem;
+  border:1px solid rgba(201,168,76,.22);
+  color:rgba(201,168,76,.7);
+  transition:all .2s;
+}
+.ds-tag:hover{border-color:var(--gold);color:var(--gold)}
+
+.devsoc-right{
+  background:#04080f;
+  display:flex;align-items:center;justify-content:center;
+  padding:4rem;
+  position:relative;overflow:hidden;
+}
+.devsoc-right::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at 70% 50%,rgba(0,170,255,.07) 0%,transparent 60%);
+}
+.merch-showcase{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:1rem;width:100%;max-width:400px;
+  position:relative;z-index:1;
+}
+.merch-item{
+  aspect-ratio:1;
+  background:linear-gradient(145deg,#0d1520,#080f1a);
+  border:1px solid rgba(0,170,255,.13);
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  gap:.6rem;
+  font-family:'Space Mono',monospace;font-size:.58rem;
+  letter-spacing:.12em;text-transform:uppercase;
+  color:rgba(240,238,234,.35);
+  transition:border-color .3s,transform .3s;
+  position:relative;overflow:hidden;
+}
+.merch-item::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at 50% 0%,rgba(0,170,255,.06) 0%,transparent 70%);
+}
+.merch-item:hover{border-color:var(--blue);transform:scale(1.03)}
+.merch-icon{font-size:2rem;opacity:.6}
+.merch-item.featured{
+  grid-column:span 2;aspect-ratio:2/1;
+  border-color:rgba(201,168,76,.2);
+  background:linear-gradient(145deg,#12100a,#0a0b0d);
+}
+.merch-item.featured:hover{border-color:var(--gold)}
+.merch-item.featured .merch-icon{font-size:2.5rem}
+.iit-stamp{
+  position:absolute;top:1rem;right:1rem;
+  font-family:'Bebas Neue',sans-serif;
+  font-size:.75rem;letter-spacing:.15em;
+  color:rgba(201,168,76,.4);
+  border:1px solid rgba(201,168,76,.2);
+  padding:.2rem .5rem;
+}
+
+/* ── PROCESS ── */
+#process{
+  position:relative;z-index:1;
+  background:linear-gradient(180deg,#04080f 0%,#060c18 100%);
+  padding:8rem 3.5rem;
+  border-top:1px solid rgba(240,238,234,.05);
+}
+.proc-header{margin-bottom:5rem}
+.proc-header h2{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(3rem,6vw,6rem);
+  line-height:.9;
+}
+.proc-header h2 i{
+  font-family:'Playfair Display',serif;
+  font-style:italic;font-weight:400;
+  color:rgba(240,238,234,.35);font-size:.55em;
+  vertical-align:baseline;
+}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
+.step{
+  padding:2.2rem 1.8rem;
+  border:1px solid rgba(240,238,234,.07);
+  position:relative;
+  transition:border-color .3s,background .3s;
+}
+.step:hover{border-color:var(--blue);background:rgba(0,170,255,.03)}
+.step-num{
+  font-family:'Cormorant Garamond',serif;
+  font-size:6rem;font-weight:300;line-height:1;
+  color:rgba(0,170,255,.08);
+  position:absolute;top:0;right:1rem;
+}
+.step-icon{font-size:1.7rem;margin-bottom:1.2rem}
+.step-title{
+  font-family:'Syne',sans-serif;font-weight:800;
+  font-size:1.1rem;color:var(--paper);margin-bottom:.8rem;
+  letter-spacing:-.01em;
+}
+.step p{
+  font-family:'Syne',sans-serif;font-size:.85rem;
+  line-height:1.75;color:rgba(240,238,234,.45);
+}
+
+/* ── CONTACT ── */
+#contact{
+  position:relative;z-index:1;
+  padding:10rem 3.5rem;
+  text-align:center;overflow:hidden;
+}
+.contact-glow{
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  width:700px;height:700px;border-radius:50%;
+  background:radial-gradient(circle,rgba(0,90,255,.12) 0%,transparent 65%);
+  pointer-events:none;
+}
+.contact-pre{
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;font-size:1.4rem;font-weight:300;
+  color:rgba(240,238,234,.35);margin-bottom:1rem;
+}
+.contact-h{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(4.5rem,11vw,11rem);
+  line-height:.85;letter-spacing:.01em;
+  color:var(--paper);
+}
+.contact-h .outline{
+  color:transparent;
+  -webkit-text-stroke:1.5px var(--blue);
+  display:block;
+}
+.contact-bottom{margin-top:3rem}
+.contact-email{
+  font-family:'Syne',sans-serif;font-weight:700;
+  font-size:clamp(1rem,2.2vw,1.7rem);
+  letter-spacing:.06em;
+  color:var(--blue);text-decoration:none;
+  border-bottom:1px solid rgba(0,170,255,.3);
+  padding-bottom:.3rem;
+  transition:border-color .25s,color .25s;
+}
+.contact-email:hover{border-color:var(--blue);color:var(--paper)}
+.socials{
+  display:flex;justify-content:center;gap:1rem;
+  margin-top:2.8rem;flex-wrap:wrap;
+}
+.soc{
+  font-family:'Space Mono',monospace;font-size:.65rem;
+  letter-spacing:.14em;text-transform:uppercase;
+  padding:.65rem 1.5rem;
+  border:1px solid rgba(240,238,234,.15);
+  color:rgba(240,238,234,.5);text-decoration:none;
+  transition:all .22s;
+}
+.soc:hover{border-color:var(--blue);color:var(--blue);box-shadow:0 0 20px rgba(0,170,255,.15)}
+
+/* ── FOOTER ── */
+footer{
+  position:relative;z-index:1;
+  border-top:1px solid rgba(240,238,234,.07);
+  padding:2rem 3.5rem;
+  display:flex;justify-content:space-between;align-items:center;
+}
+.foot-l{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:1.2rem;letter-spacing:.14em;
+  color:rgba(240,238,234,.2);
+}
+.foot-l span{color:var(--blue)}
+.foot-r{
+  font-family:'Space Mono',monospace;
+  font-size:.57rem;letter-spacing:.12em;
+  text-transform:uppercase;color:rgba(240,238,234,.18);
+}
+
+/* ── DIVIDERS ── */
+.div-line{
+  position:relative;z-index:1;
+  height:1px;
+  background:linear-gradient(to right,transparent,rgba(240,238,234,.1),transparent);
+}
+
+/* ── KEYFRAMES ── */
+@keyframes slideIn{
+  from{opacity:0;transform:translateY(24px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes clipUp{
+  from{transform:translateY(110%)}
+  to{transform:translateY(0)}
+}
+
+/* ── SCROLL REVEAL ── */
+.sr{
+  opacity:0;transform:translateY(45px);
+  transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1);
+}
+.sr.on{opacity:1;transform:none}
+.sr-l{opacity:0;transform:translateX(-45px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+.sr-l.on{opacity:1;transform:none}
+.sr-r{opacity:0;transform:translateX(45px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+.sr-r.on{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.18s}.d3{transition-delay:.26s}.d4{transition-delay:.34s}
+
+/* ── CHAR SPLIT ── */
+.split-word .char{
+  display:inline-block;
+  opacity:0;transform:translateY(30px) rotate(3deg);
+  transition:opacity .5s,transform .5s;
+}
+.split-word.on .char{opacity:1;transform:none}
+
+/* ── SCRAMBLE ── */
+.scramble{font-family:'Space Mono',monospace}
+
+/* ── MOBILE ── */
+@media(max-width:900px){
+  nav{padding:1rem 1.5rem}
+  #hero,section,#devsoc .devsoc-left{padding-left:1.5rem;padding-right:1.5rem}
+  #about{grid-template-columns:1fr;gap:3rem;padding:5rem 1.5rem}
+  .devsoc-inner{grid-template-columns:1fr}
+  .devsoc-right{display:none}
+  .projects{grid-template-columns:1fr}
+  .pj:nth-child(n){grid-column:span 12}
+  .steps{grid-template-columns:1fr 1fr}
+  .hero-stats-col{display:none}
+  footer{flex-direction:column;gap:.8rem;text-align:center}
+  .work-count{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div id="mag-cursor">
+  <div class="dot"></div>
+  <div class="ring"></div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a class="logo" href="#"><em>U</em>PMANYU</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#devsoc">DevSoc</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="mailto:hello@upmanyu.design" class="nav-hire">Hire Me</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg-word">DESIGN</div>
+  <p class="hero-eyebrow">◆ &nbsp; Graphic Designer &nbsp;·&nbsp; Visual Storyteller &nbsp;·&nbsp; Available Now</p>
+  <div class="hero-name-wrap">
+    <span class="hero-name">UPMANYU</span>
+  </div>
+  <div class="hero-name-wrap second">
+    <span class="hero-name">SINGH</span>
+  </div>
+  <p class="hero-italic">
+    Crafting visuals that <span>feel before they're understood</span>
+  </p>
+  <div class="hero-cta-row">
+    <a href="#work" class="cta-main">View My Work</a>
+    <a href="#contact" class="cta-scroll">Get In Touch</a>
+  </div>
+  <div class="hero-stats-col">
+    <div class="hstat"><div class="hstat-val">7+</div><div class="hstat-lbl">Projects</div></div>
+    <div class="hstat"><div class="hstat-val">IIT</div><div class="hstat-lbl">Bombay</div></div>
+    <div class="hstat"><div class="hstat-val">∞</div><div class="hstat-lbl">Ideas</div></div>
+  </div>
+  <div class="hero-line"></div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span class="marquee-item">Brand Identity<span class="sep">✦</span></span>
+    <span class="marquee-item">Poster Design<span class="sep">✦</span></span>
+    <span class="marquee-item">UI Design<span class="sep">✦</span></span>
+    <span class="marquee-item">Product Advertising<span class="sep">✦</span></span>
+    <span class="marquee-item">Art Direction<span class="sep">✦</span></span>
+    <span class="marquee-item">Typography<span class="sep">✦</span></span>
+    <span class="marquee-item">Motion Graphics<span class="sep">✦</span></span>
+    <span class="marquee-item">Merchandise Design<span class="sep">✦</span></span>
+    <span class="marquee-item">Brand Identity<span class="sep">✦</span></span>
+    <span class="marquee-item">Poster Design<span class="sep">✦</span></span>
+    <span class="marquee-item">UI Design<span class="sep">✦</span></span>
+    <span class="marquee-item">Product Advertising<span class="sep">✦</span></span>
+    <span class="marquee-item">Art Direction<span class="sep">✦</span></span>
+    <span class="marquee-item">Typography<span class="sep">✦</span></span>
+    <span class="marquee-item">Motion Graphics<span class="sep">✦</span></span>
+    <span class="marquee-item">Merchandise Design<span class="sep">✦</span></span>
+  </div>
+</div>
+
+<div class="div-line"></div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-left sr-l">
+    <p class="about-overline">// About Me</p>
+    <h2 class="about-h">
+      DESIGN
+      <span class="serif-mix">is my language.</span>
+      VISUAL
+      <span class="serif-mix">is my voice.</span>
+    </h2>
+    <p class="about-body">
+      I'm Upmanyu Singh — a graphic designer obsessed with the space between <strong>concept and craft</strong>. I work across poster art, digital UI, product advertising and brand identity. My process is research-heavy, instinct-led, and detail-obsessed.
+    </p>
+    <p class="about-body">
+      From cinematic car posters to Apple product pages — I believe every project deserves design that <strong>stops people mid-scroll</strong>.
+    </p>
+    <div class="skills-row">
+      <span class="sk">Figma</span>
+      <span class="sk">Photoshop</span>
+      <span class="sk">Illustrator</span>
+      <span class="sk">After Effects</span>
+      <span class="sk">Poster Art</span>
+      <span class="sk">Web UI</span>
+      <span class="sk">Branding</span>
+      <span class="sk">Typography</span>
+    </div>
+  </div>
+  <div class="about-right sr-r">
+    <div class="about-frame-big">
+      <div class="af-letters">US</div>
+      <div class="af-corner tl"></div>
+      <div class="af-corner br"></div>
+      <span class="af-tag">Upmanyu Singh · Designer</span>
+    </div>
+  </div>
+</section>
+
+<div class="div-line"></div>
+
+<!-- WORK -->
+<section id="work">
+  <div class="work-head sr">
+    <div class="work-h-left">
+      <p class="sec-label">// Selected Work</p>
+      <h2>PROJECTS <em>& experiments</em></h2>
+    </div>
+    <div class="work-count">06</div>
+  </div>
+  <div class="projects">
+
+    <div class="pj auto sr">
+      <div class="pj-thumb"><div class="pj-ph">LAMBO</div></div>
+      <div class="pj-body">
+        <p class="pj-cat">Automotive Poster</p>
+        <div class="pj-title">Liberty Walk #58</div>
+        <p class="pj-desc">Cinematic car poster for the Liberty Walk Lamborghini — dark, moody, raw. Bold number typography meets a dramatic automotive silhouette.</p>
+        <a href="#" class="pj-arrow">View Project</a>
+      </div>
+    </div>
+
+    <div class="pj film sr d1">
+      <div class="pj-thumb"><div class="pj-ph">FILM</div></div>
+      <div class="pj-body">
+        <p class="pj-cat">Movie Poster Design</p>
+        <div class="pj-title">Ensemble Cast Poster</div>
+        <p class="pj-desc">Deep purple ensemble cast layout — high-budget theatrical feel. Dramatic lighting and cinematic hierarchy that owns any wall.</p>
+        <a href="#" class="pj-arrow">View Project</a>
+      </div>
+    </div>
+
+    <div class="pj apple1 sr">
+      <div class="pj-thumb"><div class="pj-ph">AIRPODS</div></div>
+      <div class="pj-body">
+        <p class="pj-cat">Product Landing Page</p>
+        <div class="pj-title">AirPods Max 2 — Web UI</div>
+        <p class="pj-desc">Concept Apple product page. Editorial type, product photography-forward layout. Clean enough to feel official.</p>
+        <a href="#" class="pj-arrow">View Project</a>
+      </div>
+    </div>
+
+    <div class="pj apple2 sr d1">
+      <div class="pj-thumb"><div class="pj-ph">MAX 2</div></div>
+      <div class="pj-body">
+        <p class="pj-cat">Product Ad Design</p>
+        <div class="pj-title">AirPods Max 2 — Campaign</div>
+        <p class="pj-desc">Lifestyle-led campaign variant. $459 price callout, bold typographic tension, premium atmosphere from every angle.</p>
+        <a href="#" class="pj-arrow">View Project</a>
+      </div>
+    </div>
+
+    <div class="pj nike sr">
+      <div class="pj-thumb"><div class="pj-ph">NIKE</div></div>
+      <div class="pj-body">
+        <p class="pj-cat">UI / Web Design</p>
+        <div class="pj-title">Nike Air Max 90 — Interface</div>
+        <p class="pj-desc">Dark-mode web UI for Nike Air Max 90. Oversized product hero, atmospheric background type, streetwear meets digital precision.</p>
+        <a href="#" class="pj-arrow">View Project</a>
+      </div>
+    </div>
+
+    <div class="pj boat sr d1">
+      <div class="pj-thumb"><div class="pj-ph">boAt</div></div>
+      <div class="pj-body">
+        <p class="pj-cat">Music / Visual Design</p>
+        <div class="pj-title">boAt — Lifestyle Campaign</div>
+        <p class="pj-desc">Neon-lit portrait visual — blue and red gel lighting, immersive atmosphere. Built for social campaigns and brand storytelling.</p>
+        <a href="#" class="pj-arrow">View Project</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="div-line"></div>
+
+<!-- DEVSOC / IIT BOMBAY -->
+<section id="devsoc">
+  <div class="devsoc-inner">
+    <div class="devsoc-left sr-l">
+      <div class="ds-badge">Featured Achievement</div>
+      <h2 class="ds-h">
+        IIT BOMBAY
+        <span class="accent">DEVSOC</span>
+        OFFICIAL
+      </h2>
+      <p class="ds-sub">
+        Designed the official merchandise for <strong>DebSoc, IIT Bombay</strong> — one of India's most prestigious debate societies.
+      </p>
+      <p class="ds-body">
+        Selected to design the official merchandise collection for the Debate Society - WE SPEAK, IIT Bombay. The project demanded a visual language that felt simple and minimalist — balancing the society's roots with a bold, modern streetwear aesthetic.
+        <br><br>
+        The work included apparel graphics, mockups, and auxiliary print collateral.
+      </p>
+      <div class="ds-tags">
+        <span class="ds-tag">Merchandise Design</span>
+        <span class="ds-tag">Apparel Graphics</span>
+        <span class="ds-tag">IIT Bombay</span>
+        <span class="ds-tag">DebSoc</span>
+        <span class="ds-tag">Print Design</span>
+        <span class="ds-tag">Design System</span>
+      </div>
+    </div>
+    <div class="devsoc-right sr-r">
+      <div class="merch-showcase">
+        <div class="merch-item featured">
+          <div class="iit-stamp">IIT BOMBAY</div>
+          <div class="merch-icon">👕</div>
+          <span>Official Tee — DevSoc</span>
+        </div>
+        <div class="merch-item">
+          <div class="merch-icon">🎒</div>
+          <span>Tote Bag</span>
+        </div>
+        <div class="merch-item">
+          <div class="merch-icon">🧢</div>
+          <span>Cap Design</span>
+        </div>
+        <div class="merch-item" style="grid-column:span 2;aspect-ratio:2/1">
+          <div class="merch-icon">📐</div>
+          <span>Full Collection — DebSoc × IIT Bombay</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="div-line"></div>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="proc-header sr">
+    <p style="font-family:'Space Mono',monospace;font-size:.63rem;letter-spacing:.28em;text-transform:uppercase;color:var(--blue);margin-bottom:.8rem">// How I Work</p>
+    <h2>MY PROCESS <i>— how great design happens</i></h2>
+  </div>
+  <div class="steps">
+    <div class="step sr">
+      <div class="step-num">01</div>
+      <div class="step-icon">🔍</div>
+      <div class="step-title">Discover</div>
+      <p>Research the brand, audience, and visual landscape. I dig into what makes a project unique before anything gets designed.</p>
+    </div>
+    <div class="step sr d1">
+      <div class="step-num">02</div>
+      <div class="step-icon">💡</div>
+      <div class="step-title">Concept</div>
+      <p>Mood boards, references, 2–3 distinct directions. You choose a path — I push it further than you expected.</p>
+    </div>
+    <div class="step sr d2">
+      <div class="step-num">03</div>
+      <div class="step-icon">✏️</div>
+      <div class="step-title">Execute</div>
+      <p>Pixel-perfect design with obsessive attention to light, shadow, type, and composition. Every detail earns its place.</p>
+    </div>
+    <div class="step sr d3">
+      <div class="step-num">04</div>
+      <div class="step-icon">🚀</div>
+      <div class="step-title">Deliver</div>
+      <p>Clean files, all formats, no fuss. Assets ready for print, web, or wherever the world needs to see them.</p>
+    </div>
+  </div>
+</section>
+
+<div class="div-line"></div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-glow"></div>
+  <p class="contact-pre sr">— open to work, collabs &amp; big ideas —</p>
+  <div class="contact-h sr">
+    <span>LET'S</span>
+    <span class="outline">CREATE</span>
+    <span>GREAT</span>
+  </div>
+  <div class="contact-bottom sr">
+    <a href="mailto:hello@upmanyu.design" class="contact-email">hello@upmanyu.design</a>
+    <div class="socials">
+      <a href="#" class="soc">Behance</a>
+      <a href="#" class="soc">Dribbble</a>
+      <a href="#" class="soc">LinkedIn</a>
+      <a href="#" class="soc">Instagram</a>
+      <a href="#" class="soc">Resume ↓</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-l"><span>U</span>PMANYU SINGH</div>
+  <div class="foot-r">© 2026 — Crafted with obsession</div>
+</footer>
+
+<script>
+// ── CURSOR ──
+const dot = document.querySelector('#mag-cursor .dot');
+const ring = document.querySelector('#mag-cursor .ring');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px'});
+(function tick(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(tick)})();
+document.querySelectorAll('a,button').forEach(el=>{
+  el.addEventListener('mouseenter',()=>document.body.classList.add('hovering'));
+  el.addEventListener('mouseleave',()=>document.body.classList.remove('hovering'));
+});
+
+// ── SCROLL REVEAL ──
+const io = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('on') });
+},{threshold:.1});
+document.querySelectorAll('.sr,.sr-l,.sr-r').forEach(el=>io.observe(el));
+
+// ── TEXT SCRAMBLE on hero ──
+const chars='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%';
+function scramble(el, finalText, duration=1200){
+  let start=null;
+  const len=finalText.length;
+  function frame(ts){
+    if(!start) start=ts;
+    const progress=Math.min((ts-start)/duration,1);
+    let out='';
+    for(let i=0;i<len;i++){
+      if(i<Math.floor(progress*len)){
+        out+=finalText[i];
+      } else {
+        out+=chars[Math.floor(Math.random()*chars.length)];
+      }
+    }
+    el.textContent=out;
+    if(progress<1) requestAnimationFrame(frame);
+    else el.textContent=finalText;
+  }
+  requestAnimationFrame(frame);
+}
+window.addEventListener('load',()=>{
+  const heroNames=document.querySelectorAll('.hero-name');
+  heroNames.forEach((el,i)=>{
+    const orig=el.textContent;
+    setTimeout(()=>scramble(el,orig,900),300+i*150);
+  });
+});
+
+// ── STAGGER cards on scroll ──
+const cardObs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const siblings=Array.from(e.target.parentElement.children);
+      const idx=siblings.indexOf(e.target);
+      e.target.style.transitionDelay=(idx*0.07)+'s';
+      e.target.classList.add('on');
+    }
+  });
+},{threshold:.08});
+document.querySelectorAll('.pj,.step,.merch-item').forEach(el=>{
+  el.classList.add('sr');
+  cardObs.observe(el);
+});
+
+// ── MARQUEE pause on hover ──
+document.querySelectorAll('.marquee-track').forEach(t=>{
+  t.parentElement.addEventListener('mouseenter',()=>t.style.animationPlayState='paused');
+  t.parentElement.addEventListener('mouseleave',()=>t.style.animationPlayState='running');
+});
+
+// ── PARALLAX hero bg word ──
+const bgWord=document.querySelector('.hero-bg-word');
+document.addEventListener('scroll',()=>{
+  const y=window.scrollY;
+  if(bgWord) bgWord.style.transform=`translate(-50%,calc(-50% + ${y*0.25}px))`;
+});
+</script>
+</body>
+</html>

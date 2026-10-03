@@ -1,0 +1,189 @@
+#ab {
+    position: relative;
+    z-index: 1;
+    padding: 2rem 3.5rem 7rem
+}
+
+.ab-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 5rem;
+    max-width: 1200px
+}
+
+.tl {
+    margin-top: 5rem;
+    max-width: 760px;
+    border-left: 1px solid rgba(0, 170, 255, .3)
+}
+
+.tl-item {
+    padding: 0 0 2rem 1.8rem;
+    position: relative
+}
+
+.tl-item::before {
+    content: '';
+    position: absolute;
+    left: -5px;
+    top: .35rem;
+    width: 9px;
+    height: 9px;
+    background: var(--blue);
+    border-radius: 50%
+}
+
+.sr-r {
+    position: relative;
+}
+
+.space-field {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    width: auto;
+    height: auto;
+    overflow: hidden;
+    pointer-events: none;
+    opacity: .38;
+    perspective: 700px;
+}
+
+.sr-r > :not(.space-field) {
+    position: relative;
+    z-index: 1;
+}
+
+.space-particles {
+    position: absolute;
+    inset: 0;
+    opacity: .75;
+    background-image: radial-gradient(circle at 12% 18%, rgba(240, 238, 234, .8) 0 1px, transparent 1.5px), radial-gradient(circle at 76% 12%, rgba(0, 170, 255, .9) 0 1px, transparent 1.5px), radial-gradient(circle at 64% 38%, rgba(240, 238, 234, .55) 0 1px, transparent 1.5px), radial-gradient(circle at 21% 62%, rgba(201, 168, 76, .7) 0 1px, transparent 1.5px), radial-gradient(circle at 88% 72%, rgba(240, 238, 234, .5) 0 1px, transparent 1.5px), radial-gradient(circle at 42% 86%, rgba(0, 170, 255, .7) 0 1px, transparent 1.5px);
+    animation: particleDrift 12s ease-in-out infinite alternate;
+}
+
+.space-system {
+    position: absolute;
+    top: 8%;
+    right: 4%;
+    width: 390px;
+    height: 350px;
+    transform: rotate(-8deg);
+    transform-style: preserve-3d;
+}
+
+.space-sun {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 64px;
+    height: 64px;
+    margin: -32px 0 0 -32px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #fff1a8, #c9a84c 45%, rgba(201, 168, 76, .1) 70%, transparent 72%);
+    box-shadow: 0 0 18px rgba(201, 168, 76, .8), 0 0 70px rgba(201, 168, 76, .35);
+    animation: sunPulse 4s ease-in-out infinite;
+}
+
+.space-dyson {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -21px 0 0 -60px;
+    width: 120px;
+    height: 42px;
+    border: 1px solid rgba(0, 170, 255, .6);
+    border-radius: 50%;
+    transform: rotateX(68deg) rotateZ(-18deg);
+    box-shadow: 0 0 16px rgba(0, 170, 255, .25);
+    animation: dysonSpin 8s linear infinite;
+}
+
+.space-dyson::before,
+.space-dyson::after {
+    content: '';
+    position: absolute;
+    inset: 6px -12px;
+    border: 1px solid rgba(201, 168, 76, .35);
+    border-radius: 50%;
+}
+
+.space-dyson::after {
+    inset: 14px -22px;
+    border-color: rgba(0, 170, 255, .25);
+}
+
+.space-dyson i {
+    position: absolute;
+    top: -3px;
+    left: 50%;
+    width: 6px;
+    height: 6px;
+    background: var(--blue);
+    border-radius: 50%;
+    box-shadow: 0 0 12px var(--blue);
+}
+
+.space-orbit {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border: 1px solid rgba(0, 170, 255, .22);
+    border-radius: 50%;
+    transform-style: preserve-3d;
+}
+
+.space-orbit i {
+    position: absolute;
+    top: -3px;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: rgba(240, 238, 234, .7);
+    box-shadow: 0 0 10px rgba(240, 238, 234, .8);
+}
+
+.orbit-one { width: 150px; height: 78px; margin: -39px 0 0 -75px; transform: rotateX(65deg) rotateZ(18deg); }
+.orbit-two { width: 250px; height: 130px; margin: -65px 0 0 -125px; transform: rotateX(65deg) rotateZ(-24deg); border-style: dashed; }
+.orbit-three { width: 360px; height: 190px; margin: -95px 0 0 -180px; transform: rotateX(70deg) rotateZ(8deg); border-color: rgba(201, 168, 76, .2); }
+
+.space-planet {
+    position: absolute;
+    border-radius: 50%;
+    box-shadow: 0 0 14px currentColor;
+    animation: planetFloat 7s ease-in-out infinite;
+}
+
+.planet-one { top: 30%; left: 72%; width: 10px; height: 10px; color: var(--blue); background: #0af; }
+.planet-two { top: 70%; left: 18%; width: 7px; height: 7px; color: var(--gold); background: var(--gold); animation-delay: -2s; }
+.planet-three { top: 16%; left: 30%; width: 15px; height: 15px; color: #df6f52; background: #df6f52; animation-delay: -4s; }
+
+@keyframes particleDrift { to { transform: translate3d(8px, -10px, 0) scale(1.04); } }
+@keyframes sunPulse { 50% { transform: scale(1.08); opacity: .8; } }
+@keyframes dysonSpin { to { transform: rotateX(68deg) rotateZ(342deg); } }
+@keyframes planetFloat { 50% { transform: translate3d(9px, -7px, 14px); } }
+
+@media (max-width: 900px) {
+    .space-field {
+        opacity: .3;
+    }
+
+    .space-system {
+        top: 10%;
+        right: -2rem;
+        transform: rotate(-8deg) scale(.82);
+        transform-origin: top right;
+    }
+}
+
+@media(max-width:900px) {
+    #ab {
+        padding: 2rem 1.5rem 5rem
+    }
+
+    .ab-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem
+    }
+}

@@ -9,6 +9,18 @@ document.querySelectorAll('a,button').forEach(el=>{
   el.addEventListener('mouseleave',()=>document.body.classList.remove('hovering'));
 });
 
+const nav = document.querySelector('nav');
+const navToggle = document.querySelector('.nav-toggle');
+navToggle?.addEventListener('click',()=>{
+  const isOpen = nav.classList.toggle('menu-open');
+  navToggle.setAttribute('aria-expanded',String(isOpen));
+  navToggle.querySelector('.sr-only').textContent = isOpen ? 'Close menu' : 'Open menu';
+});
+document.querySelectorAll('.nav-links a').forEach(link=>link.addEventListener('click',()=>{
+  nav?.classList.remove('menu-open');
+  navToggle?.setAttribute('aria-expanded','false');
+}));
+
 // ── SCROLL REVEAL ──
 const io = new IntersectionObserver(entries=>{
   entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('on') });

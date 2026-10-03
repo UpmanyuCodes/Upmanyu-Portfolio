@@ -1,0 +1,102 @@
+/* Shared by all pages — load after style.css */
+.nav-links a.on {
+    color: var(--paper)
+}
+
+.nav-links a.on::after {
+    width: 100%
+}
+
+body {
+    transition: opacity .25s
+}
+
+body.leaving {
+    opacity: 0
+}
+
+.page-head {
+    position: relative;
+    z-index: 1;
+    padding: 10rem 3.5rem 3rem
+}
+
+.page-head .sec-label {
+    font-family: 'Space Mono', monospace;
+    font-size: .63rem;
+    letter-spacing: .28em;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: .7rem
+}
+
+.page-head h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3.5rem, 8vw, 8rem);
+    line-height: .88;
+    font-weight: 400
+}
+
+.page-head h1 em {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: rgba(240, 238, 234, .4);
+    font-size: .5em
+}
+
+.cs-card {
+    background: #080f1a;
+    border: 1px solid rgba(240, 238, 234, .07);
+    padding: 1.8rem;
+    display: flex;
+    flex-direction: column;
+    transition: border-color .4s, transform .4s
+}
+
+.cs-card:hover {
+    border-color: rgba(0, 170, 255, .5);
+    transform: translateY(-6px)
+}
+
+.cs-card .pj-desc {
+    flex: 1
+}
+
+.cs-foot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.4rem
+}
+
+.cs-foot .pj-arrow {
+    margin-top: 0
+}
+
+.tag {
+    font-family: 'Space Mono', monospace;
+    font-size: .58rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    padding: .3rem .7rem;
+    border: 1px solid rgba(201, 168, 76, .3);
+    color: var(--gold)
+}
+
+a:focus-visible {
+    outline: 2px solid var(--blue);
+    outline-offset: 4px
+}
+
+@media(prefers-reduced-motion:reduce) {
+    * {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important
+    }
+}
+
+@media(max-width:900px) {
+    .page-head {
+        padding: 8rem 1.5rem 2rem
+    }
+}

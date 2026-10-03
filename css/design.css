@@ -1,0 +1,55 @@
+#work {
+    padding-bottom: 6rem
+}
+
+/* Keep each artwork fully visible inside a consistent gallery frame. */
+.pj-thumb {
+    height: auto;
+    padding: 0;
+    background: transparent;
+    border-bottom: 0;
+    transition: none;
+}
+
+.pj-thumb::before {
+    display: none;
+}
+
+.pj-thumb::after {
+    display: none;
+}
+
+.pj-image {
+    position: relative;
+    inset: auto;
+    z-index: 1;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+    object-fit: initial;
+    object-position: center;
+    transform: none;
+    opacity: 1;
+}
+
+.pj-ph {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    width: auto;
+    height: auto;
+    color: transparent;
+    background: transparent;
+    pointer-events: none;
+}
+
+.pj:hover .pj-image,
+.pj:hover .pj-ph {
+    transform: none;
+}
+
+.pj:hover .pj-thumb {
+    border-color: transparent;
+    box-shadow: none;
+}

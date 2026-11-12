@@ -1,105 +1,206 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="ink">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About — Upmanyu Singh</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300;1,600&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;700;800&family=Playfair+Display:ital,wght@1,400;1,700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/shared.css">
-    <link rel="stylesheet" href="../css/about.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Upmanyu Singh</title>
+  <meta name="description" content="About Upmanyu Singh: third-year B.Tech CSE student at JIIT, Noida. Engineering and design skills, experience and achievements." />
+  <meta name="theme-color" content="#12110f" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Host+Grotesk:ital,wght@0,300..800;1,300..800&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/shared.css" />
+  <link rel="stylesheet" href="../css/about.css" />
+  <script src="../js/boot.js"></script>
 </head>
 
-<body>
-    <div id="mag-cursor">
-        <div class="dot"></div>
-        <div class="ring"></div>
+<body data-page="about" id="top">
+
+  <!-- first-visit loader -->
+  <div class="loader" aria-hidden="true">
+    <div class="loader__top label"><span>Upmanyu Singh</span><span>Portfolio — 2026</span></div>
+    <div class="loader__mid">
+      <svg class="reg" viewBox="0 0 54 54">
+        <circle cx="27" cy="27" r="17" />
+        <circle class="reg__fill" cx="27" cy="27" r="5" />
+        <path d="M27 0v54M0 27h54" />
+      </svg>
+      <div class="loader__words label">
+        <div><span>Mixing ink</span><span>Setting type</span><span>Aligning plates</span><span>Plotting points</span><span>Ready</span></div>
+      </div>
     </div>
-    <div class="space-field" aria-hidden="true">
-        <div class="space-particles"></div>
-        <div class="space-system">
-            <div class="space-sun"></div>
-            <div class="space-dyson"><i></i></div>
-            <div class="space-orbit orbit-one"><i></i></div>
-            <div class="space-orbit orbit-two"><i></i></div>
-            <div class="space-orbit orbit-three"><i></i></div>
-            <div class="space-planet planet-one"></div>
-            <div class="space-planet planet-two"></div>
-            <div class="space-planet planet-three"></div>
-        </div>
+    <div class="loader__base">
+      <div class="loader__count"><span data-count>000</span></div>
+      <span class="label">Code &amp; Design</span>
     </div>
-    <nav><a class="logo" href="index.html"><em>U</em>PMANYU</a>
-        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu"><span></span><span></span><span></span><span class="sr-only">Open menu</span></button>
-        <ul class="nav-links" id="site-menu">
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="design.html">Design</a></li>
-            <li><a href="about.html" class="on">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul><a href="mailto:upmanyu.work@gmail.com" class="nav-hire">Hire Me</a>
+    <div class="loader__bar"></div>
+  </div>
+
+  <!-- page-to-page curtain -->
+  <div class="curtain" aria-hidden="true">
+    <div class="curtain__label"><span></span></div>
+  </div>
+
+  <div class="cursor" aria-hidden="true"><span class="cursor__label"></span></div>
+  <canvas class="stage" aria-hidden="true"></canvas>
+
+  <header class="nav">
+    <a class="nav__mark" href="index.html" aria-label="Upmanyu Singh, home"><span>Upmanyu Singh</span><sup>©26</sup></a>
+    <nav class="nav__dock" aria-label="Primary">
+      <a class="nav__link" href="projects.html">Projects</a>
+      <a class="nav__link" href="design.html">Design</a>
+      <a class="nav__link" href="about.html">About</a>
+      <a class="nav__link" href="contact.html">Contact</a>
     </nav>
-    <section class="page-head">
-        <p class="sec-label">// About</p>
-        <h1>ABOUT <em>me</em></h1>
-    </section>
-    <section id="ab">
-        <div class="ab-grid">
-            <div class="sr-l">
-                <p class="about-body" style="margin-top:0">I'm Upmanyu Singh, a third-year B.Tech CSE student at JIIT,
-                    Noida. I like building projects that solve real problems, from ML for underwater robotics to
-                    healthcare and metro-rail tools. I'm looking for SDE and ML internships.</p>
-                <p class="about-body">I also design, and that shows in how I build: interfaces that are clear, fast, and
-                    well made.</p>
-                <div class="socials" style="justify-content:flex-start"><a class="soc"
-                        href="https://drive.google.com/drive/folders/13ZjSsxk1_tS-3kvgzsDoisw8NKGvD4iZ?usp=drive_link"
-                        target="_blank" rel="noopener">Resume ↓</a><a class="soc" href="https://github.com/UpmanyuCodes"
-                        target="_blank" rel="noopener">GitHub</a></div>
-            </div>
-            <div class="sr-r">
-                <div class="about-frame-big" style="max-width:340px;margin-bottom:2.5rem"><img
-                        src="../assets/Upmanyu.jpg" alt="Upmanyu Singh" class="about-image">
-                    <div class="af-corner tl"></div>
-                    <div class="af-corner br"></div><span class="af-tag">Upmanyu Singh · CS &amp; Design</span>
-                </div>
-                <p class="sec-label">// Engineering</p>
-                <div class="skills-row"><span class="sk">C++</span><span class="sk">Python</span><span
-                        class="sk">JavaScript</span><span class="sk">Java</span><span class="sk">React</span><span
-                        class="sk">Node.js</span><span class="sk">Express</span><span class="sk">MongoDB</span><span
-                        class="sk">MySQL</span><span class="sk">FastAPI</span><span class="sk">NumPy</span><span
-                        class="sk">Pandas</span></div>
-                <p class="sec-label" style="margin-top:2rem">// Design</p>
-                <div class="skills-row"><span class="sk">Figma</span><span class="sk">Photoshop</span><span
-                        class="sk">Canva</span><span class="sk">Poster Art</span><span class="sk">Web UI</span></div>
-            </div>
+    <a class="btn btn--solid btn--small nav__cta" href="mailto:upmanyu.work@gmail.com" data-magnetic><span class="roll"><span
+          data-text="Hire me">Hire me</span></span></a>
+    <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="menu"><i></i><span>Menu</span></button>
+  </header>
+
+  <div class="menu" id="menu">
+    <ul class="menu__links">
+      <li><a href="index.html"><span class="label">00</span><span>Home</span></a></li>
+      <li><a href="projects.html"><span class="label">01</span><span>Projects</span></a></li>
+      <li><a href="design.html"><span class="label">02</span><span>Design</span></a></li>
+      <li><a href="about.html"><span class="label">03</span><span>About</span></a></li>
+      <li><a href="contact.html"><span class="label">04</span><span>Contact</span></a></li>
+    </ul>
+    <div class="menu__base label"><a href="mailto:upmanyu.work@gmail.com">upmanyu.work@gmail.com</a><span>Noida, India</span></div>
+  </div>
+
+  <main>
+    <section class="head" data-theme="ink"
+      data-swarm='{"form":"portrait","src":"../assets/Upmanyu.jpg","crop":[0.03,0.25,0.94,0.75],"x":0.44,"y":0.03,"size":0.8,"sway":0.1,"dot":0.85,"m":{"x":0.1,"y":0.3,"size":0.56,"alpha":0.6}}'>
+      <div class="wrap">
+        <p class="label head__label" data-reveal><span class="dot"></span>&ensp;(03) — About</p>
+        <h1 class="display" data-lines="intro">
+          <span class="hl"><span class="hl__in">About</span></span>
+          <span class="hl"><span class="hl__in"><em>me</em></span></span>
+        </h1>
+        <div class="head__foot">
+          <div class="head__note" data-reveal>
+            <p class="label label--muted">Upmanyu Singh · CS &amp; Design</p>
+            <p>Third-year B.Tech CSE at JIIT, Noida.</p>
+          </div>
+          <p class="label fig" data-fig><b>Fig. 5</b><span>Self-portrait, in thirty thousand dots.</span></p>
         </div>
-        <div class="tl">
-            <div class="tl-item sr">
-                <p class="pj-cat">Internship</p>
-                <div class="pj-title">Web &amp; Digital Intern, PMC American Hospital, Kota</div>
-                <p class="pj-desc">Built the hospital's website and created social media content.</p>
-            </div>
-            <div class="tl-item sr">
-                <p class="pj-cat">Club</p>
-                <div class="pj-title">Software team, CICR (JIIT robotics club)</div>
-                <p class="pj-desc">Built the club's website.</p>
-            </div>
-            <div class="tl-item sr">
-                <p class="pj-cat">Achievement</p>
-                <div class="pj-title">Top 20 of 524 teams, Indo-Israeli Hackathon 2025</div>
-            </div>
-            <div class="tl-item sr">
-                <p class="pj-cat">Achievement</p>
-                <div class="pj-title">Official merchandise designer, DebSoc, IIT Bombay</div>
-            </div>
-        </div>
+      </div>
     </section>
-    <footer>
-        <div class="foot-l"><span>U</span>PMANYU SINGH</div>
-        <div class="foot-r">© 2026 — Code &amp; Design</div>
-    </footer>
-    <script src="../js/main.js"></script>
+
+    <section class="bio" data-theme="paper" data-swarm='{"form":"dust","size":1.9,"alpha":0.12,"dot":0.8,"sway":0.5}'>
+      <div class="wrap grid">
+        <figure class="bio__photo">
+          <div class="crop"><i></i><i></i><i></i><i></i></div>
+          <div class="bio__frame" data-unveil><img src="../assets/Upmanyu.jpg" alt="Upmanyu Singh" data-parallax="5" />
+          </div>
+          <figcaption class="label label--muted">Upmanyu Singh · CS &amp; Design</figcaption>
+        </figure>
+        <div class="bio__text">
+          <p class="label" data-reveal>Who</p>
+          <p class="lead" data-scrub>I'm Upmanyu Singh, a third-year B.Tech CSE student at JIIT, Noida. I like building
+            projects that solve real problems, from ML for underwater robotics to healthcare and metro-rail tools. I'm
+            looking for SDE and ML internships.</p>
+          <p class="bio__second" data-split>I also design, and that shows in how I build: interfaces that are clear,
+            fast, and well made.</p>
+          <div class="bio__cta" data-reveal>
+            <a class="btn btn--solid" href="https://drive.google.com/drive/folders/13ZjSsxk1_tS-3kvgzsDoisw8NKGvD4iZ?usp=drive_link" target="_blank" rel="noopener" data-magnetic><span class="roll"><span data-text="Resume ↓">Resume ↓</span></span></a>
+            <a class="btn" href="https://github.com/UpmanyuCodes" target="_blank" rel="noopener" data-magnetic><span class="roll"><span data-text="GitHub ↗">GitHub ↗</span></span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="kit" data-theme="paper">
+      <div class="wrap">
+        <div class="opener label" data-reveal><span>Toolkit</span><span>17 things I reach for</span></div>
+        <div class="kit__row grid" data-reveal>
+          <p class="label kit__label"><span class="spot">//</span> Engineering</p>
+          <ul class="kit__list"><li>C++</li><li>Python</li><li>JavaScript</li><li>Java</li><li>React</li><li>Node.js</li><li>Express</li><li>MongoDB</li><li>MySQL</li><li>FastAPI</li><li>NumPy</li><li>Pandas</li></ul>
+        </div>
+        <div class="kit__row grid" data-reveal>
+          <p class="label kit__label"><span class="spot">//</span> Design</p>
+          <ul class="kit__list"><li>Figma</li><li>Photoshop</li><li>Canva</li><li>Poster Art</li><li>Web UI</li></ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="path" data-theme="paper" data-swarm='{"form":"dust","size":1.9,"alpha":0.12,"dot":0.8,"sway":0.5}'>
+      <div class="wrap">
+        <div class="opener label" data-reveal><span>Experience &amp; achievements</span><span>04 entries</span></div>
+        <ul class="path__list">
+          <li class="path__row grid" data-reveal>
+            <p class="label path__kind">Internship</p>
+            <h2 class="path__title">Web &amp; Digital Intern, PMC American Hospital, Kota</h2>
+            <p class="path__desc">Built the hospital's website and created social media content.</p>
+          </li>
+          <li class="path__row grid" data-reveal>
+            <p class="label path__kind">Club</p>
+            <h2 class="path__title">Software team, CICR (JIIT robotics club)</h2>
+            <p class="path__desc">Built the club's website.</p>
+          </li>
+          <li class="path__row grid" data-reveal>
+            <p class="label path__kind">Achievement</p>
+            <h2 class="path__title">Top 20 of 524 teams, Indo-Israeli Hackathon 2025</h2>
+          </li>
+          <li class="path__row grid" data-reveal>
+            <p class="label path__kind">Achievement</p>
+            <h2 class="path__title">Official merchandise designer, DebSoc, IIT Bombay</h2>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <!-- ── footer ─────────────────────────────────────────── -->
+  <footer class="foot" data-theme="ink"
+    data-swarm='{"form":"orrery","x":0.52,"y":0.34,"size":0.46,"alpha":0.75,"m":{"x":0.4,"y":0.56,"size":0.34,"alpha":0.3}}'>
+    <div class="wrap">
+      <p class="label label--muted" data-reveal>(Next) — Open to SDE &amp; ML internships, collabs and design work</p>
+      <a class="foot__cta display" href="contact.html" data-lines data-cursor="Say hello">
+        <span class="hl"><span class="hl__in">Let's build</span></span>
+        <span class="hl"><span class="hl__in"><em>together</em> <span class="arr">↗</span></span></span>
+      </a>
+      <div class="foot__grid grid">
+        <div class="foot__col foot__col--wide" data-reveal>
+          <p class="label">Write to me</p>
+          <a class="foot__mail link" href="mailto:upmanyu.work@gmail.com">upmanyu.work@gmail.com</a>
+        </div>
+        <div class="foot__col" data-reveal>
+          <p class="label">Elsewhere</p>
+          <a class="link" href="https://github.com/UpmanyuCodes" target="_blank" rel="noopener">GitHub <span
+              class="arr">↗</span></a>
+          <a class="link" href="https://www.linkedin.com/in/upmanyu-singh30" target="_blank" rel="noopener">LinkedIn
+            <span class="arr">↗</span></a>
+          <a class="link" href="https://www.instagram.com/upmanyu_30/" target="_blank" rel="noopener">Instagram <span
+              class="arr">↗</span></a>
+        </div>
+        <div class="foot__col" data-reveal>
+          <p class="label">Paperwork</p>
+          <a class="link"
+            href="https://drive.google.com/drive/folders/13ZjSsxk1_tS-3kvgzsDoisw8NKGvD4iZ?usp=drive_link"
+            target="_blank" rel="noopener">Resume <span class="arr">↗</span></a>
+          <span>Noida, India · <span data-clock>--:--</span> IST</span>
+        </div>
+      </div>
+      <div class="foot__base label">
+        <span>© 2026 Upmanyu Singh</span>
+        <span>Code &amp; Design</span>
+        <a href="#top" data-top>Back to top ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/lenis@1.3.4/dist/lenis.min.js"></script>
+  <script defer src="../js/forms.js"></script>
+  <script defer src="../js/swarm.js"></script>
+  <script defer src="../js/main.js"></script>
 </body>
 
 </html>

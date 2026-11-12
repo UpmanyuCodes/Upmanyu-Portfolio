@@ -1,122 +1,223 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="paper">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Projects — Upmanyu Singh</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300;1,600&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;700;800&family=Playfair+Display:ital,wght@1,400;1,700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/shared.css">
-    <link rel="stylesheet" href="../css/projects.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects — Upmanyu Singh</title>
+  <meta name="description" content="Machine learning, full-stack and research projects by Upmanyu Singh: AntiFoul-AI, HealSync, Suchi-Patra, Chhaya-Drishti and more." />
+  <meta name="theme-color" content="#ece8df" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Host+Grotesk:ital,wght@0,300..800;1,300..800&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/shared.css" />
+  <link rel="stylesheet" href="../css/projects.css" />
+  <script src="../js/boot.js"></script>
 </head>
 
-<body>
-    <div id="mag-cursor">
-        <div class="dot"></div>
-        <div class="ring"></div>
+<body data-page="projects" id="top">
+
+  <!-- first-visit loader -->
+  <div class="loader" aria-hidden="true">
+    <div class="loader__top label"><span>Upmanyu Singh</span><span>Portfolio — 2026</span></div>
+    <div class="loader__mid">
+      <svg class="reg" viewBox="0 0 54 54">
+        <circle cx="27" cy="27" r="17" />
+        <circle class="reg__fill" cx="27" cy="27" r="5" />
+        <path d="M27 0v54M0 27h54" />
+      </svg>
+      <div class="loader__words label">
+        <div><span>Mixing ink</span><span>Setting type</span><span>Aligning plates</span><span>Plotting points</span><span>Ready</span></div>
+      </div>
     </div>
-    <nav><a class="logo" href="index.html"><em>U</em>PMANYU</a>
-        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu"><span></span><span></span><span></span><span class="sr-only">Open menu</span></button>
-        <ul class="nav-links" id="site-menu">
-            <li><a href="projects.html" class="on">Projects</a></li>
-            <li><a href="design.html">Design</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul><a href="mailto:upmanyu.work@gmail.com" class="nav-hire">Hire Me</a>
+    <div class="loader__base">
+      <div class="loader__count"><span data-count>000</span></div>
+      <span class="label">Code &amp; Design</span>
+    </div>
+    <div class="loader__bar"></div>
+  </div>
+
+  <!-- page-to-page curtain -->
+  <div class="curtain" aria-hidden="true">
+    <div class="curtain__label"><span></span></div>
+  </div>
+
+  <div class="cursor" aria-hidden="true"><span class="cursor__label"></span></div>
+  <canvas class="stage" aria-hidden="true"></canvas>
+
+  <header class="nav">
+    <a class="nav__mark" href="index.html" aria-label="Upmanyu Singh, home"><span>Upmanyu Singh</span><sup>©26</sup></a>
+    <nav class="nav__dock" aria-label="Primary">
+      <a class="nav__link" href="projects.html">Projects</a>
+      <a class="nav__link" href="design.html">Design</a>
+      <a class="nav__link" href="about.html">About</a>
+      <a class="nav__link" href="contact.html">Contact</a>
     </nav>
-    <section class="page-head">
-        <p class="sec-label">// Code</p>
-        <h1>PROJECTS <em>& research</em></h1>
-        <div class="gh-card sr">
-            <div>
-                <div class="pj-title">UpmanyuCodes</div>
-                <p class="pj-desc">CSE student, focused on building real life problem solving projects.</p>
-            </div><a class="cta-main" href="https://github.com/UpmanyuCodes?tab=repositories" target="_blank"
-                rel="noopener">All 16 repositories</a>
+    <a class="btn btn--solid btn--small nav__cta" href="mailto:upmanyu.work@gmail.com" data-magnetic><span class="roll"><span
+          data-text="Hire me">Hire me</span></span></a>
+    <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="menu"><i></i><span>Menu</span></button>
+  </header>
+
+  <div class="menu" id="menu">
+    <ul class="menu__links">
+      <li><a href="index.html"><span class="label">00</span><span>Home</span></a></li>
+      <li><a href="projects.html"><span class="label">01</span><span>Projects</span></a></li>
+      <li><a href="design.html"><span class="label">02</span><span>Design</span></a></li>
+      <li><a href="about.html"><span class="label">03</span><span>About</span></a></li>
+      <li><a href="contact.html"><span class="label">04</span><span>Contact</span></a></li>
+    </ul>
+    <div class="menu__base label"><a href="mailto:upmanyu.work@gmail.com">upmanyu.work@gmail.com</a><span>Noida, India</span></div>
+  </div>
+
+  <main>
+    <section class="head"
+      data-swarm='{"form":"glyph:{ }","x":0.46,"y":0.16,"size":0.5,"yaw":-0.35,"pitch":0.12,"sway":0.3,"m":{"x":0.2,"y":0.36,"size":0.34,"alpha":0.8}}'>
+      <div class="wrap">
+        <p class="label head__label" data-reveal><span class="dot"></span>&ensp;(01) — Code</p>
+        <h1 class="display" data-lines="intro">
+          <span class="hl"><span class="hl__in">Projects</span></span>
+          <span class="hl"><span class="hl__in"><em>&amp; research</em></span></span>
+        </h1>
+        <div class="head__foot">
+          <div class="head__note" data-reveal>
+            <p class="label label--muted">github.com/UpmanyuCodes</p>
+            <p>CSE student, focused on building real life problem solving projects.</p>
+          </div>
+          <div data-reveal><a class="btn btn--solid" href="https://github.com/UpmanyuCodes?tab=repositories" target="_blank" rel="noopener" data-magnetic><span class="roll"><span data-text="All 16 repositories ↗">All 16 repositories ↗</span></span></a></div>
         </div>
+      </div>
     </section>
-    <section id="cs">
-        <div class="cs-grid">
-            <div class="cs-card sr">
-                <p class="pj-cat">Python · ML · FastAPI</p>
-                <div class="pj-title">AntiFoul-AI</div>
-                <p class="pj-desc">Predicts biofouling risk for AUVs and ROVs from ocean data, then recommends Indian
-                    traditional prevention methods. Rebuilding with FastAPI and Random Forest; IEEE paper in progress.
-                </p>
-                <div class="cs-foot"><span class="tag">In progress</span><a
-                        href="https://github.com/UpmanyuCodes/AntiFoul-AI-v2" class="pj-arrow" target="_blank"
-                        rel="noopener">GitHub</a></div>
-            </div>
-            <div class="cs-card sr">
-                <p class="pj-cat">JavaScript · Node.js · Spring Boot</p>
-                <div class="pj-title">HealSync</div>
-                <p class="pj-desc">Patient-centric web platform that closes communication gaps in restorative healthcare
-                    with a clear, interactive treatment journey.</p>
-                <div class="cs-foot"><span class="tag">Hackathon finalist</span><a
-                        href="https://github.com/UpmanyuCodes/HealSync" class="pj-arrow" target="_blank"
-                        rel="noopener">GitHub</a></div>
-            </div>
-            <div class="cs-card sr">
-                <p class="pj-cat">HTML · Automation</p>
-                <div class="pj-title">Suchi-Patra</div>
-                <p class="pj-desc">Automated document management for Kochi Metro Rail Limited: intelligent organization,
-                    retrieval, and workflow automation to tackle document overload.</p>
-                <div class="cs-foot"><span class="tag">Kochi Metro</span><a
-                        href="https://github.com/UpmanyuCodes/Suchi-Patra" class="pj-arrow" target="_blank"
-                        rel="noopener">GitHub</a></div>
-            </div>
-            <div class="cs-card sr">
-                <p class="pj-cat">Python · Data</p>
-                <div class="pj-title">Chhaya-Drishti</div>
-                <p class="pj-desc">Analyzes Chandrayaan-2 data of the Moon's south pole to map elevation and slope, find
-                    potential water-ice regions, and pick safe landing sites.</p>
-                <div class="cs-foot"><span class="tag">Chandrayaan-2</span><a
-                        href="https://github.com/UpmanyuCodes/Chhaya-Drishti" class="pj-arrow" target="_blank"
-                        rel="noopener">GitHub</a></div>
-            </div>
-            <div class="cs-card sr">
-                <p class="pj-cat">JavaScript · Node.js · Express · MongoDB</p>
-                <div class="pj-title">my-online-meals</div>
-                <p class="pj-desc">Responsive food delivery site with ordering, catering, and bulk orders.</p>
-                <div class="cs-foot"><span class="tag">Full-stack</span><a
-                        href="https://github.com/vivek-pareek2006/my-online-meals" class="pj-arrow" target="_blank"
-                        rel="noopener">GitHub</a></div>
-            </div>
-            <div class="cs-card sr">
-                <p class="pj-cat">Python</p>
-                <div class="pj-title">Monte Carlo Explorer</div>
-                <p class="pj-desc">Monte Carlo experiments showing the Law of Large Numbers: coin tosses, dice rolls, π
-                    estimation, and the birthday paradox.</p>
-                <div class="cs-foot"><span class="tag">Simulations</span><a
-                        href="https://github.com/UpmanyuCodes/Monte-Carlo-Probability-Explorer" class="pj-arrow"
-                        target="_blank" rel="noopener">GitHub</a></div>
-            </div>
-            <div class="cs-card sr">
-                <p class="pj-cat">HTML · CSS · JavaScript</p>
-                <div class="pj-title">CICR Club Website</div>
-                <p class="pj-desc">Website for CICR, JIIT's robotics hub. PCB-schematic look with an interactive canvas
-                    circuit background.</p>
-                <div class="cs-foot"><span class="tag">Club project</span><a
-                        href="https://github.com/CICR-The-Robotics-Hub-of-JIIT-128/techtonic2.0" class="pj-arrow"
-                        target="_blank" rel="noopener">GitHub</a></div>
-            </div>
-            <div class="cs-card sr">
-                <p class="pj-cat">HTML · CSS · JavaScript</p>
-                <div class="pj-title">PMC Hospital Website</div>
-                <p class="pj-desc">Five-page website for PMC American Hospital, Kota, with a 3D CSS carousel gallery.
-                </p>
-                <div class="cs-foot"><span class="tag">Internship</span></div>
-            </div>
+
+    <section class="index" data-swarm='{"form":"dust","size":1.9,"alpha":0.14,"dot":0.8,"sway":0.5}'>
+      <div class="wrap">
+        <div class="opener label" data-reveal><span>Index</span><span>08 entries</span></div>
+        <ul class="rows">
+          <li class="row" data-reveal>
+            <a class="row__link" href="https://github.com/UpmanyuCodes/AntiFoul-AI-v2" target="_blank" rel="noopener" data-cursor="GitHub ↗">
+            <span class="label row__no">01</span>
+            <span class="row__title">AntiFoul-AI</span>
+            <span class="row__desc">Predicts biofouling risk for AUVs and ROVs from ocean data, then recommends Indian traditional prevention methods. Rebuilding with FastAPI and Random Forest; IEEE paper in progress.</span>
+            <span class="row__meta label"><span>Python · ML · FastAPI</span><span class="tag">In progress</span></span>
+            <span class="row__arr" aria-hidden="true">↗</span>
+          </a>
+          </li>
+          <li class="row" data-reveal>
+            <a class="row__link" href="https://github.com/UpmanyuCodes/HealSync" target="_blank" rel="noopener" data-cursor="GitHub ↗">
+            <span class="label row__no">02</span>
+            <span class="row__title">HealSync</span>
+            <span class="row__desc">Patient-centric web platform that closes communication gaps in restorative healthcare with a clear, interactive treatment journey.</span>
+            <span class="row__meta label"><span>JavaScript · Node.js · Spring Boot</span><span class="tag">Hackathon finalist</span></span>
+            <span class="row__arr" aria-hidden="true">↗</span>
+          </a>
+          </li>
+          <li class="row" data-reveal>
+            <a class="row__link" href="https://github.com/UpmanyuCodes/Suchi-Patra" target="_blank" rel="noopener" data-cursor="GitHub ↗">
+            <span class="label row__no">03</span>
+            <span class="row__title">Suchi-Patra</span>
+            <span class="row__desc">Automated document management for Kochi Metro Rail Limited: intelligent organization, retrieval, and workflow automation to tackle document overload.</span>
+            <span class="row__meta label"><span>HTML · Automation</span><span class="tag">Kochi Metro</span></span>
+            <span class="row__arr" aria-hidden="true">↗</span>
+          </a>
+          </li>
+          <li class="row" data-reveal>
+            <a class="row__link" href="https://github.com/UpmanyuCodes/Chhaya-Drishti" target="_blank" rel="noopener" data-cursor="GitHub ↗">
+            <span class="label row__no">04</span>
+            <span class="row__title">Chhaya-Drishti</span>
+            <span class="row__desc">Analyzes Chandrayaan-2 data of the Moon's south pole to map elevation and slope, find potential water-ice regions, and pick safe landing sites.</span>
+            <span class="row__meta label"><span>Python · Data</span><span class="tag">Chandrayaan-2</span></span>
+            <span class="row__arr" aria-hidden="true">↗</span>
+          </a>
+          </li>
+          <li class="row" data-reveal>
+            <a class="row__link" href="https://github.com/vivek-pareek2006/my-online-meals" target="_blank" rel="noopener" data-cursor="GitHub ↗">
+            <span class="label row__no">05</span>
+            <span class="row__title">my-online-meals</span>
+            <span class="row__desc">Responsive food delivery site with ordering, catering, and bulk orders.</span>
+            <span class="row__meta label"><span>JavaScript · Node.js · Express · MongoDB</span><span class="tag">Full-stack</span></span>
+            <span class="row__arr" aria-hidden="true">↗</span>
+          </a>
+          </li>
+          <li class="row" data-reveal>
+            <a class="row__link" href="https://github.com/UpmanyuCodes/Monte-Carlo-Probability-Explorer" target="_blank" rel="noopener" data-cursor="GitHub ↗">
+            <span class="label row__no">06</span>
+            <span class="row__title">Monte Carlo Explorer</span>
+            <span class="row__desc">Monte Carlo experiments showing the Law of Large Numbers: coin tosses, dice rolls, π estimation, and the birthday paradox.</span>
+            <span class="row__meta label"><span>Python</span><span class="tag">Simulations</span></span>
+            <span class="row__arr" aria-hidden="true">↗</span>
+          </a>
+          </li>
+          <li class="row" data-reveal>
+            <a class="row__link" href="https://github.com/CICR-The-Robotics-Hub-of-JIIT-128/techtonic2.0" target="_blank" rel="noopener" data-cursor="GitHub ↗">
+            <span class="label row__no">07</span>
+            <span class="row__title">CICR Club Website</span>
+            <span class="row__desc">Website for CICR, JIIT's robotics hub. PCB-schematic look with an interactive canvas circuit background.</span>
+            <span class="row__meta label"><span>HTML · CSS · JavaScript</span><span class="tag">Club project</span></span>
+            <span class="row__arr" aria-hidden="true">↗</span>
+          </a>
+          </li>
+          <li class="row row--still" data-reveal>
+            <div class="row__link">
+            <span class="label row__no">08</span>
+            <span class="row__title">PMC Hospital Website</span>
+            <span class="row__desc">Five-page website for PMC American Hospital, Kota, with a 3D CSS carousel gallery.</span>
+            <span class="row__meta label"><span>HTML · CSS · JavaScript</span><span class="tag">Internship</span></span>
+            <span class="row__arr" aria-hidden="true">—</span>
+          </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <!-- ── footer ─────────────────────────────────────────── -->
+  <footer class="foot" data-theme="ink"
+    data-swarm='{"form":"orrery","x":0.52,"y":0.34,"size":0.46,"alpha":0.75,"m":{"x":0.4,"y":0.56,"size":0.34,"alpha":0.3}}'>
+    <div class="wrap">
+      <p class="label label--muted" data-reveal>(Next) — Open to SDE &amp; ML internships, collabs and design work</p>
+      <a class="foot__cta display" href="contact.html" data-lines data-cursor="Say hello">
+        <span class="hl"><span class="hl__in">Let's build</span></span>
+        <span class="hl"><span class="hl__in"><em>together</em> <span class="arr">↗</span></span></span>
+      </a>
+      <div class="foot__grid grid">
+        <div class="foot__col foot__col--wide" data-reveal>
+          <p class="label">Write to me</p>
+          <a class="foot__mail link" href="mailto:upmanyu.work@gmail.com">upmanyu.work@gmail.com</a>
         </div>
-    </section>
-    <footer>
-        <div class="foot-l"><span>U</span>PMANYU SINGH</div>
-        <div class="foot-r">© 2026 — Code &amp; Design</div>
-    </footer>
-    <script src="../js/main.js"></script>
+        <div class="foot__col" data-reveal>
+          <p class="label">Elsewhere</p>
+          <a class="link" href="https://github.com/UpmanyuCodes" target="_blank" rel="noopener">GitHub <span
+              class="arr">↗</span></a>
+          <a class="link" href="https://www.linkedin.com/in/upmanyu-singh30" target="_blank" rel="noopener">LinkedIn
+            <span class="arr">↗</span></a>
+          <a class="link" href="https://www.instagram.com/upmanyu_30/" target="_blank" rel="noopener">Instagram <span
+              class="arr">↗</span></a>
+        </div>
+        <div class="foot__col" data-reveal>
+          <p class="label">Paperwork</p>
+          <a class="link"
+            href="https://drive.google.com/drive/folders/13ZjSsxk1_tS-3kvgzsDoisw8NKGvD4iZ?usp=drive_link"
+            target="_blank" rel="noopener">Resume <span class="arr">↗</span></a>
+          <span>Noida, India · <span data-clock>--:--</span> IST</span>
+        </div>
+      </div>
+      <div class="foot__base label">
+        <span>© 2026 Upmanyu Singh</span>
+        <span>Code &amp; Design</span>
+        <a href="#top" data-top>Back to top ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/lenis@1.3.4/dist/lenis.min.js"></script>
+  <script defer src="../js/forms.js"></script>
+  <script defer src="../js/swarm.js"></script>
+  <script defer src="../js/main.js"></script>
 </body>
 
 </html>

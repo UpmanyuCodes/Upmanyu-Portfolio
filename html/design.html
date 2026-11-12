@@ -1,126 +1,228 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="paper">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Design — Upmanyu Singh</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300;1,600&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;700;800&family=Playfair+Display:ital,wght@1,400;1,700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/shared.css">
-    <link rel="stylesheet" href="../css/design.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Design — Upmanyu Singh</title>
+  <meta name="description" content="Posters, product UI and brand work by Upmanyu Singh, including the official merchandise for DebSoc, IIT Bombay." />
+  <meta name="theme-color" content="#ece8df" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Host+Grotesk:ital,wght@0,300..800;1,300..800&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/shared.css" />
+  <link rel="stylesheet" href="../css/design.css" />
+  <script src="../js/boot.js"></script>
 </head>
 
-<body>
-    <div id="mag-cursor">
-        <div class="dot"></div>
-        <div class="ring"></div>
+<body data-page="design" id="top">
+
+  <!-- first-visit loader -->
+  <div class="loader" aria-hidden="true">
+    <div class="loader__top label"><span>Upmanyu Singh</span><span>Portfolio — 2026</span></div>
+    <div class="loader__mid">
+      <svg class="reg" viewBox="0 0 54 54">
+        <circle cx="27" cy="27" r="17" />
+        <circle class="reg__fill" cx="27" cy="27" r="5" />
+        <path d="M27 0v54M0 27h54" />
+      </svg>
+      <div class="loader__words label">
+        <div><span>Mixing ink</span><span>Setting type</span><span>Aligning plates</span><span>Plotting points</span><span>Ready</span></div>
+      </div>
     </div>
-    <nav><a class="logo" href="index.html"><em>U</em>PMANYU</a>
-        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu"><span></span><span></span><span></span><span class="sr-only">Open menu</span></button>
-        <ul class="nav-links" id="site-menu">
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="design.html" class="on">Design</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul><a href="mailto:upmanyu.work@gmail.com" class="nav-hire">Hire Me</a>
+    <div class="loader__base">
+      <div class="loader__count"><span data-count>000</span></div>
+      <span class="label">Code &amp; Design</span>
+    </div>
+    <div class="loader__bar"></div>
+  </div>
+
+  <!-- page-to-page curtain -->
+  <div class="curtain" aria-hidden="true">
+    <div class="curtain__label"><span></span></div>
+  </div>
+
+  <div class="cursor" aria-hidden="true"><span class="cursor__label"></span></div>
+  <canvas class="stage" aria-hidden="true"></canvas>
+
+  <header class="nav">
+    <a class="nav__mark" href="index.html" aria-label="Upmanyu Singh, home"><span>Upmanyu Singh</span><sup>©26</sup></a>
+    <nav class="nav__dock" aria-label="Primary">
+      <a class="nav__link" href="projects.html">Projects</a>
+      <a class="nav__link" href="design.html">Design</a>
+      <a class="nav__link" href="about.html">About</a>
+      <a class="nav__link" href="contact.html">Contact</a>
     </nav>
-    <section class="page-head">
-        <p class="sec-label">// Design</p>
-        <h1>DESIGN <em>work</em></h1>
-    </section>
-    <section id="work" style="padding-top:2rem">
-        <div class="projects">
-            <div class="pj auto sr">
-                <div class="pj-thumb"><img src="../assets/Lambo.jpg" alt="Liberty Walk #58" class="pj-image">
-                    <div class="pj-ph">LAMBO</div>
-                </div>
-                <div class="pj-body">
-                    <p class="pj-cat">Automotive Poster</p>
-                    <div class="pj-title">Liberty Walk #58</div>
-                    <p class="pj-desc">Cinematic car poster for the Liberty Walk Lamborghini: dark, moody, raw.</p>
-                </div>
-            </div>
-            <div class="pj film sr">
-                <div class="pj-thumb"><img src="../assets/Movie.jpg" alt="Ballerina Cast Poster" class="pj-image">
-                    <div class="pj-ph">Movie Poster</div>
-                </div>
-                <div class="pj-body">
-                    <p class="pj-cat">Movie Poster Design</p>
-                    <div class="pj-title">Ballerina Cast Poster</div>
-                    <p class="pj-desc">Deep purple ensemble cast layout with a high-budget theatrical feel.</p>
-                </div>
-            </div>
-            <div class="pj apple1 sr">
-                <div class="pj-thumb"><img src="../assets/Apple.jpg" alt="AirPods Max 2 — Web UI" class="pj-image">
-                    <div class="pj-ph">AIRPODS</div>
-                </div>
-                <div class="pj-body">
-                    <p class="pj-cat">Product Landing Page</p>
-                    <div class="pj-title">AirPods Max 2 — Web UI</div>
-                    <p class="pj-desc">Concept Apple product page with editorial type and a photography-forward layout.
-                    </p>
-                </div>
-            </div>
-            <div class="pj apple2 sr">
-                <div class="pj-thumb"><img src="../assets/Apple2.jpg" alt="AirPods Max 2 — Campaign" class="pj-image">
-                    <div class="pj-ph">MAX 2</div>
-                </div>
-                <div class="pj-body">
-                    <p class="pj-cat">Product Ad Design</p>
-                    <div class="pj-title">AirPods Max 2 — Campaign</div>
-                    <p class="pj-desc">Lifestyle-led campaign variant with bold typographic tension.</p>
-                </div>
-            </div>
-            <div class="pj nike sr">
-                <div class="pj-thumb"><img src="../assets/Nike.jpg" alt="Nike Air Max 90 — Interface" class="pj-image">
-                    <div class="pj-ph">NIKE</div>
-                </div>
-                <div class="pj-body">
-                    <p class="pj-cat">UI / Web Design</p>
-                    <div class="pj-title">Nike Air Max 90 — Interface</div>
-                    <p class="pj-desc">Dark-mode web UI with an oversized product hero and atmospheric type.</p>
-                </div>
-            </div>
-            <div class="pj boat sr">
-                <div class="pj-thumb"><img src="../assets/Boat.jpg" alt="boAt — Lifestyle Campaign" class="pj-image">
-                    <div class="pj-ph">boAt</div>
-                </div>
-                <div class="pj-body">
-                    <p class="pj-cat">Music / Visual Design</p>
-                    <div class="pj-title">boAt — Lifestyle Campaign</div>
-                    <p class="pj-desc">Neon-lit portrait visual with blue and red gel lighting for social campaigns.</p>
-                </div>
-            </div>
+    <a class="btn btn--solid btn--small nav__cta" href="mailto:upmanyu.work@gmail.com" data-magnetic><span class="roll"><span
+          data-text="Hire me">Hire me</span></span></a>
+    <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="menu"><i></i><span>Menu</span></button>
+  </header>
+
+  <div class="menu" id="menu">
+    <ul class="menu__links">
+      <li><a href="index.html"><span class="label">00</span><span>Home</span></a></li>
+      <li><a href="projects.html"><span class="label">01</span><span>Projects</span></a></li>
+      <li><a href="design.html"><span class="label">02</span><span>Design</span></a></li>
+      <li><a href="about.html"><span class="label">03</span><span>About</span></a></li>
+      <li><a href="contact.html"><span class="label">04</span><span>Contact</span></a></li>
+    </ul>
+    <div class="menu__base label"><a href="mailto:upmanyu.work@gmail.com">upmanyu.work@gmail.com</a><span>Noida, India</span></div>
+  </div>
+
+  <main>
+    <section class="head"
+      data-swarm='{"form":"bezier","x":0.42,"y":0.18,"size":0.46,"yaw":-0.3,"pitch":0.18,"sway":0.3,"m":{"x":0.1,"y":0.36,"size":0.3,"alpha":0.8}}'>
+      <div class="wrap">
+        <p class="label head__label" data-reveal><span class="dot"></span>&ensp;(02) — Design</p>
+        <h1 class="display" data-lines="intro">
+          <span class="hl"><span class="hl__in">Design</span></span>
+          <span class="hl"><span class="hl__in"><em>work</em></span></span>
+        </h1>
+        <div class="head__foot">
+          <div class="head__note" data-reveal>
+            <p class="label label--muted">Posters · Product UI · Merchandise</p>
+            <p>Posters, product UI, and official merchandise for DebSoc, IIT Bombay.</p>
+          </div>
+          <p class="label label--muted" data-reveal>06 pieces + 01 feature</p>
         </div>
+      </div>
     </section>
-    <div class="div-line"></div>
-    <section id="devsoc">
-        <div class="devsoc-inner">
-            <div class="devsoc-left sr-l">
-                <div class="ds-badge">Featured Achievement</div>
-                <h2 class="ds-h">IIT BOMBAY <span class="accent">DEBSOC</span> OFFICIAL</h2>
-                <p class="ds-sub">Designed the official merchandise for <strong>DebSoc, IIT Bombay</strong>.</p>
-                <p class="ds-body">Selected to design the merchandise collection for the Debate Society, WE SPEAK:
-                    apparel graphics, mockups, and print collateral in a minimalist, modern streetwear style.</p>
-                <div class="ds-tags"><span class="ds-tag">Merchandise Design</span><span class="ds-tag">Apparel
-                        Graphics</span><span class="ds-tag">Print Design</span></div>
-            </div>
-            <div class="devsoc-right sr-r">
-                <div class="merch-showcase">
-                    <div class="merch-item featured"><img src="../assets/merch.jpg" alt="Official Tee"
-                            class="merch-image"><span>Official Tee — DebSoc</span></div>
-                </div>
-            </div>
+
+    <section class="pieces" data-swarm='{"form":"dust","size":1.9,"alpha":0.1,"dot":0.8,"sway":0.5}'>
+      <div class="wrap grid">
+        <figure class="piece piece--a">
+          <a class="piece__frame" href="../assets/Lambo.jpg" data-zoom="Liberty Walk #58" data-cursor="Zoom" data-unveil
+            style="--ar:1080/1350"><img src="../assets/Lambo.jpg" alt="Liberty Walk #58" loading="lazy" decoding="async" /></a>
+          <figcaption class="piece__cap">
+            <p class="label" data-reveal><span class="spot">01</span> &nbsp;/&nbsp; Automotive poster</p>
+            <h2 class="piece__title" data-split>Liberty Walk #58</h2>
+            <p class="body" data-split>Cinematic car poster for the Liberty Walk Lamborghini: dark, moody, raw.</p>
+          </figcaption>
+        </figure>
+        <figure class="piece piece--b">
+          <a class="piece__frame" href="../assets/Movie.jpg" data-zoom="Ballerina Cast Poster" data-cursor="Zoom" data-unveil
+            style="--ar:596/843"><img src="../assets/Movie.jpg" alt="Ballerina Cast Poster" loading="lazy" decoding="async" /></a>
+          <figcaption class="piece__cap">
+            <p class="label" data-reveal><span class="spot">02</span> &nbsp;/&nbsp; Movie poster design</p>
+            <h2 class="piece__title" data-split>Ballerina Cast Poster</h2>
+            <p class="body" data-split>Deep purple ensemble cast layout with a high-budget theatrical feel.</p>
+          </figcaption>
+        </figure>
+        <figure class="piece piece--c">
+          <a class="piece__frame" href="../assets/Apple.jpg" data-zoom="AirPods Max 2 — Web UI" data-cursor="Zoom" data-unveil
+            style="--ar:1728/1117"><img src="../assets/Apple.jpg" alt="AirPods Max 2 — Web UI" loading="lazy" decoding="async" /></a>
+          <figcaption class="piece__cap">
+            <p class="label" data-reveal><span class="spot">03</span> &nbsp;/&nbsp; Product landing page</p>
+            <h2 class="piece__title" data-split>AirPods Max 2 — Web UI</h2>
+            <p class="body" data-split>Concept Apple product page with editorial type and a photography-forward layout.</p>
+          </figcaption>
+        </figure>
+        <figure class="piece piece--d">
+          <a class="piece__frame" href="../assets/Apple2.jpg" data-zoom="AirPods Max 2 — Campaign" data-cursor="Zoom" data-unveil
+            style="--ar:1728/1117"><img src="../assets/Apple2.jpg" alt="AirPods Max 2 — Campaign" loading="lazy" decoding="async" /></a>
+          <figcaption class="piece__cap">
+            <p class="label" data-reveal><span class="spot">04</span> &nbsp;/&nbsp; Product ad design</p>
+            <h2 class="piece__title" data-split>AirPods Max 2 — Campaign</h2>
+            <p class="body" data-split>Lifestyle-led campaign variant with bold typographic tension.</p>
+          </figcaption>
+        </figure>
+        <figure class="piece piece--e">
+          <a class="piece__frame" href="../assets/Boat.jpg" data-zoom="boAt — Lifestyle Campaign" data-cursor="Zoom" data-unveil
+            style="--ar:1/1"><img src="../assets/Boat.jpg" alt="boAt — Lifestyle Campaign" loading="lazy" decoding="async" /></a>
+          <figcaption class="piece__cap">
+            <p class="label" data-reveal><span class="spot">05</span> &nbsp;/&nbsp; Music / visual design</p>
+            <h2 class="piece__title" data-split>boAt — Lifestyle Campaign</h2>
+            <p class="body" data-split>Neon-lit portrait visual with blue and red gel lighting for social campaigns.</p>
+          </figcaption>
+        </figure>
+        <figure class="piece piece--f">
+          <a class="piece__frame" href="../assets/Nike.jpg" data-zoom="Nike Air Max 90 — Interface" data-cursor="Zoom" data-unveil
+            style="--ar:1608/978"><img src="../assets/Nike.jpg" alt="Nike Air Max 90 — Interface" loading="lazy" decoding="async" /></a>
+          <figcaption class="piece__cap">
+            <p class="label" data-reveal><span class="spot">06</span> &nbsp;/&nbsp; UI / web design</p>
+            <h2 class="piece__title" data-split>Nike Air Max 90 — Interface</h2>
+            <p class="body" data-split>Dark-mode web UI with an oversized product hero and atmospheric type.</p>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="merch" data-theme="ink" data-swarm='{"form":"dust","size":1.7,"alpha":0.2,"sway":0.5}'>
+      <div class="wrap grid">
+        <div class="merch__text">
+          <p class="label badge" data-reveal><span class="dot"></span>&ensp;Featured achievement</p>
+          <h2 class="title" data-lines>
+            <span class="hl"><span class="hl__in">IIT Bombay</span></span>
+            <span class="hl"><span class="hl__in"><em>DebSoc,</em> official.</span></span>
+          </h2>
+          <p class="lead merch__sub" data-split>Designed the official merchandise for DebSoc, IIT Bombay.</p>
+          <p class="body" data-split>Selected to design the merchandise collection for the Debate Society, WE SPEAK: apparel
+            graphics, mockups, and print collateral in a minimalist, modern streetwear style.</p>
+          <ul class="merch__tags label" data-reveal>
+            <li class="tag">Merchandise design</li>
+            <li class="tag">Apparel graphics</li>
+            <li class="tag">Print design</li>
+          </ul>
         </div>
+        <figure class="merch__img">
+          <a class="piece__frame" href="../assets/merch.jpg" data-zoom="Official Tee — DebSoc" data-cursor="Zoom"
+            data-unveil style="--ar:1/1"><img src="../assets/merch.jpg" alt="Official tee for DebSoc, IIT Bombay"
+              loading="lazy" decoding="async" /></a>
+          <figcaption class="label label--muted">Official Tee — DebSoc</figcaption>
+        </figure>
+      </div>
     </section>
-    <footer>
-        <div class="foot-l"><span>U</span>PMANYU SINGH</div>
-        <div class="foot-r">© 2026 — Code &amp; Design</div>
-    </footer>
-    <script src="../js/main.js"></script>
+  </main>
+
+  <!-- ── footer ─────────────────────────────────────────── -->
+  <footer class="foot" data-theme="ink"
+    data-swarm='{"form":"orrery","x":0.52,"y":0.34,"size":0.46,"alpha":0.75,"m":{"x":0.4,"y":0.56,"size":0.34,"alpha":0.3}}'>
+    <div class="wrap">
+      <p class="label label--muted" data-reveal>(Next) — Open to SDE &amp; ML internships, collabs and design work</p>
+      <a class="foot__cta display" href="contact.html" data-lines data-cursor="Say hello">
+        <span class="hl"><span class="hl__in">Let's build</span></span>
+        <span class="hl"><span class="hl__in"><em>together</em> <span class="arr">↗</span></span></span>
+      </a>
+      <div class="foot__grid grid">
+        <div class="foot__col foot__col--wide" data-reveal>
+          <p class="label">Write to me</p>
+          <a class="foot__mail link" href="mailto:upmanyu.work@gmail.com">upmanyu.work@gmail.com</a>
+        </div>
+        <div class="foot__col" data-reveal>
+          <p class="label">Elsewhere</p>
+          <a class="link" href="https://github.com/UpmanyuCodes" target="_blank" rel="noopener">GitHub <span
+              class="arr">↗</span></a>
+          <a class="link" href="https://www.linkedin.com/in/upmanyu-singh30" target="_blank" rel="noopener">LinkedIn
+            <span class="arr">↗</span></a>
+          <a class="link" href="https://www.instagram.com/upmanyu_30/" target="_blank" rel="noopener">Instagram <span
+              class="arr">↗</span></a>
+        </div>
+        <div class="foot__col" data-reveal>
+          <p class="label">Paperwork</p>
+          <a class="link"
+            href="https://drive.google.com/drive/folders/13ZjSsxk1_tS-3kvgzsDoisw8NKGvD4iZ?usp=drive_link"
+            target="_blank" rel="noopener">Resume <span class="arr">↗</span></a>
+          <span>Noida, India · <span data-clock>--:--</span> IST</span>
+        </div>
+      </div>
+      <div class="foot__base label">
+        <span>© 2026 Upmanyu Singh</span>
+        <span>Code &amp; Design</span>
+        <a href="#top" data-top>Back to top ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/lenis@1.3.4/dist/lenis.min.js"></script>
+  <script defer src="../js/forms.js"></script>
+  <script defer src="../js/swarm.js"></script>
+  <script defer src="../js/main.js"></script>
 </body>
 
 </html>

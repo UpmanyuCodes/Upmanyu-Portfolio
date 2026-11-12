@@ -1,55 +1,182 @@
-#work {
-    padding-bottom: 6rem
+/* design.css : pieces laid out like spreads, plus the DebSoc feature */
+
+.pieces {
+  padding: 3rem 0 clamp(7rem, 20vh, 13rem);
 }
 
-/* Keep each artwork fully visible inside a consistent gallery frame. */
-.pj-thumb {
-    height: auto;
-    padding: 0;
-    background: transparent;
-    border-bottom: 0;
-    transition: none;
+.pieces>.grid {
+  row-gap: clamp(4.5rem, 13vh, 10rem);
+  align-items: start;
 }
 
-.pj-thumb::before {
-    display: none;
+.piece {
+  display: grid;
+  gap: 1.3rem;
 }
 
-.pj-thumb::after {
-    display: none;
+.piece--a {
+  grid-column: 1 / span 5;
 }
 
-.pj-image {
-    position: relative;
-    inset: auto;
-    z-index: 1;
-    width: 100%;
-    height: auto;
-    margin: 0 auto;
-    display: block;
-    object-fit: initial;
-    object-position: center;
-    transform: none;
-    opacity: 1;
+.piece--b {
+  grid-column: 8 / span 4;
+  margin-top: 24vh;
 }
 
-.pj-ph {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    width: auto;
-    height: auto;
-    color: transparent;
-    background: transparent;
-    pointer-events: none;
+.piece--c {
+  grid-column: 2 / span 10;
 }
 
-.pj:hover .pj-image,
-.pj:hover .pj-ph {
-    transform: none;
+.piece--d {
+  grid-column: 1 / span 7;
 }
 
-.pj:hover .pj-thumb {
-    border-color: transparent;
-    box-shadow: none;
+.piece--e {
+  grid-column: 9 / span 4;
+  margin-top: 18vh;
+}
+
+.piece--f {
+  grid-column: 3 / span 10;
+}
+
+.piece__frame {
+  display: block;
+  overflow: hidden;
+  aspect-ratio: var(--ar);
+  border-radius: 4px;
+  background: var(--wash);
+}
+
+.piece__frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.4s var(--out);
+}
+
+.piece__frame:hover img {
+  transform: scale(1.025);
+}
+
+.piece__cap {
+  display: grid;
+  gap: .7rem;
+  justify-items: start;
+}
+
+.piece__cap .label {
+  color: var(--muted);
+}
+
+.piece__title {
+  font-size: clamp(1.5rem, 2.5vw, 2.4rem);
+  line-height: 1.05;
+  letter-spacing: -.035em;
+  font-weight: 500;
+}
+
+/* ── DebSoc feature ───────────────────────────────────────── */
+
+.merch {
+  padding: clamp(7rem, 20vh, 12rem) 0;
+}
+
+.merch>.grid {
+  align-items: center;
+  row-gap: 3rem;
+}
+
+.merch__text {
+  grid-column: 1 / span 6;
+  display: grid;
+  gap: 1.6rem;
+  justify-items: start;
+}
+
+.merch__sub {
+  max-width: 16em;
+}
+
+.badge {
+  padding: .6em 1em;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+}
+
+.merch__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin-top: .4rem;
+}
+
+.merch__img {
+  grid-column: 8 / span 5;
+  display: grid;
+  gap: .9rem;
+}
+
+/* ── lightbox ─────────────────────────────────────────────── */
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 110;
+  display: grid;
+  place-items: center;
+  padding: 5vh 4vw 4.5rem;
+  background: rgba(18, 17, 15, .95);
+  opacity: 0;
+  visibility: hidden;
+  cursor: zoom-out;
+  transition: opacity .5s var(--out), visibility 0s .5s;
+}
+
+.lightbox.is-open {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity .5s var(--out);
+}
+
+.lightbox img {
+  max-width: 100%;
+  max-height: 82vh;
+  border-radius: 4px;
+  transform: scale(.95);
+  transition: transform .9s var(--out);
+}
+
+.lightbox.is-open img {
+  transform: none;
+}
+
+.lightbox p {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 1.5rem;
+  text-align: center;
+  color: var(--paper);
+}
+
+@media (max-width: 820px) {
+
+  .piece--a,
+  .piece--b,
+  .piece--c,
+  .piece--d,
+  .piece--e,
+  .piece--f,
+  .merch__text,
+  .merch__img {
+    grid-column: 1 / -1;
+    margin-top: 0;
+  }
+
+  .piece--b,
+  .piece--e {
+    width: 82%;
+    justify-self: end;
+  }
 }

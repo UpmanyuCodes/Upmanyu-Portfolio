@@ -1,6 +1,56 @@
-#contact {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center
+/* contact.css : one screen, one ask */
+
+.contact {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 6rem 0 1.3rem;
+}
+
+.contact__title {
+  font-size: min(var(--display), 14.5vh);
+}
+
+.contact__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 2rem 3rem;
+  margin: clamp(1.4rem, 4vh, 3rem) 0 clamp(1.2rem, 3vh, 2rem);
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--line);
+}
+
+.contact__mailbox {
+  display: grid;
+  gap: .9rem;
+  justify-items: start;
+}
+
+.contact__mail {
+  font-size: clamp(1.5rem, 3.3vw, 3.3rem);
+  line-height: 1.1;
+  letter-spacing: -.04em;
+  font-weight: 500;
+  word-break: break-word;
+}
+
+.contact__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .8rem 2rem;
+  font-size: 1.15rem;
+}
+
+@media (max-width: 820px) {
+  .contact {
+    padding-top: 6rem;
+  }
+
+  .contact__title {
+    font-size: clamp(3.1rem, 17vw, 6rem);
+  }
 }

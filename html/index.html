@@ -1,128 +1,368 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="paper">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Upmanyu Singh — CS Student & Designer</title>
+  <meta name="description"
+    content="Upmanyu Singh is a third-year CSE student at JIIT, Noida, building machine learning and full-stack projects that solve real problems, and designing the interfaces around them." />
+  <meta name="theme-color" content="#ece8df" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300;1,600&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;700;800&family=Playfair+Display:ital,wght@1,400;1,700&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="../css/style.css">
-  <link rel="stylesheet" href="../css/shared.css">
-  <link rel="stylesheet" href="../css/home.css">
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Host+Grotesk:ital,wght@0,300..800;1,300..800&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/shared.css" />
+  <link rel="stylesheet" href="../css/home.css" />
+  <script src="../js/boot.js"></script>
 </head>
 
-<body>
-  <div id="mag-cursor">
-    <div class="dot"></div>
-    <div class="ring"></div>
+<body data-page="home" id="top">
+
+  <!-- first-visit loader -->
+  <div class="loader" aria-hidden="true">
+    <div class="loader__top label"><span>Upmanyu Singh</span><span>Portfolio — 2026</span></div>
+    <div class="loader__mid">
+      <svg class="reg" viewBox="0 0 54 54">
+        <circle cx="27" cy="27" r="17" />
+        <circle class="reg__fill" cx="27" cy="27" r="5" />
+        <path d="M27 0v54M0 27h54" />
+      </svg>
+      <div class="loader__words label">
+        <div><span>Mixing ink</span><span>Setting type</span><span>Aligning plates</span><span>Plotting points</span><span>Ready</span></div>
+      </div>
+    </div>
+    <div class="loader__base">
+      <div class="loader__count"><span data-count>000</span></div>
+      <span class="label">Code &amp; Design</span>
+    </div>
+    <div class="loader__bar"></div>
   </div>
-  <nav><a class="logo" href="index.html"><em>U</em>PMANYU</a>
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu"><span></span><span></span><span></span><span class="sr-only">Open menu</span></button>
-    <ul class="nav-links" id="site-menu">
-      <li><a href="projects.html">Projects</a></li>
-      <li><a href="design.html">Design</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul><a href="mailto:upmanyu.work@gmail.com" class="nav-hire">Hire Me</a>
-  </nav>
-  <section id="hero">
-    <div class="hero-bg-word">CODE</div>
-    <p class="hero-eyebrow">◆ &nbsp; CS Student &nbsp;·&nbsp; ML &amp; Full-Stack &nbsp;·&nbsp; Designer</p>
-    <div class="hero-name-wrap"><span class="hero-name">UPMANYU</span></div>
-    <div class="hero-name-wrap second"><span class="hero-name">SINGH</span></div>
-    <p class="hero-italic">I build systems that solve <span>real problems</span>, and design the interfaces around them
-    </p>
-    <div class="hero-cta-row"><a href="projects.html" class="cta-main">View Projects</a><a
-        href="https://github.com/UpmanyuCodes" class="cta-scroll" target="_blank" rel="noopener">GitHub Profile</a>
-    </div>
-    <div class="hero-stats-col">
-      <div class="hstat">
-        <div class="hstat-val">20/524</div>
-        <div class="hstat-lbl">Indo-Israeli Hackathon 2025</div>
-      </div>
-      <div class="hstat">
-        <div class="hstat-val">JIIT</div>
-        <div class="hstat-lbl">B.Tech CSE · Noida</div>
-      </div>
-    </div>
-    <div class="hero-line"></div>
-  </section>
-  <div class="marquee-wrap">
-    <div class="marquee-track">
-      <span class="marquee-item">Machine Learning<span class="sep">✦</span></span>
-      <span class="marquee-item">Full-Stack<span class="sep">✦</span></span>
-      <span class="marquee-item">React<span class="sep">✦</span></span>
-      <span class="marquee-item">FastAPI<span class="sep">✦</span></span>
-      <span class="marquee-item">Data Structures<span class="sep">✦</span></span>
-      <span class="marquee-item">C++<span class="sep">✦</span></span>
-      <span class="marquee-item">Python<span class="sep">✦</span></span>
-      <span class="marquee-item">UI Design<span class="sep">✦</span></span>
-      <span class="marquee-item">Brand Identity<span class="sep">✦</span></span>
-      <span class="marquee-item">Poster Design<span class="sep">✦</span></span>
-      <span class="marquee-item">Machine Learning<span class="sep">✦</span></span>
-      <span class="marquee-item">Full-Stack<span class="sep">✦</span></span>
-      <span class="marquee-item">React<span class="sep">✦</span></span>
-      <span class="marquee-item">FastAPI<span class="sep">✦</span></span>
-      <span class="marquee-item">Data Structures<span class="sep">✦</span></span>
-      <span class="marquee-item">C++<span class="sep">✦</span></span>
-      <span class="marquee-item">Python<span class="sep">✦</span></span>
-      <span class="marquee-item">UI Design<span class="sep">✦</span></span>
-      <span class="marquee-item">Brand Identity<span class="sep">✦</span></span>
-      <span class="marquee-item">Poster Design<span class="sep">✦</span></span>
-    </div>
+
+  <!-- page-to-page curtain -->
+  <div class="curtain" aria-hidden="true">
+    <div class="curtain__label"><span></span></div>
   </div>
-  <div class="div-line"></div>
-  <section id="feat">
-    <div class="work-head sr">
-      <div class="work-h-left">
-        <p class="sec-label">// Featured</p>
-        <h2>SELECTED <em>projects</em></h2>
-      </div><a href="projects.html" class="pj-arrow">All projects</a>
-    </div>
-    <div class="feat">
-      <div class="cs-card sr">
-        <p class="pj-cat">Python · ML · FastAPI</p>
-        <div class="pj-title">AntiFoul-AI</div>
-        <p class="pj-desc">Predicts biofouling risk for AUVs and ROVs from ocean data, then recommends Indian
-          traditional prevention methods. Rebuilding with FastAPI and Random Forest; IEEE paper in progress.</p>
-        <div class="cs-foot"><span class="tag">In progress</span><a
-            href="https://github.com/UpmanyuCodes/AntiFoul-AI-v2" class="pj-arrow" target="_blank"
-            rel="noopener">GitHub</a></div>
-      </div>
-      <div class="cs-card sr">
-        <p class="pj-cat">JavaScript · Node.js · Spring Boot</p>
-        <div class="pj-title">HealSync</div>
-        <p class="pj-desc">Patient-centric web platform that closes communication gaps in restorative healthcare with a
-          clear, interactive treatment journey.</p>
-        <div class="cs-foot"><span class="tag">Hackathon finalist</span><a
-            href="https://github.com/UpmanyuCodes/HealSync" class="pj-arrow" target="_blank" rel="noopener">GitHub</a>
+
+  <div class="cursor" aria-hidden="true"><span class="cursor__label"></span></div>
+  <canvas class="stage" aria-hidden="true"></canvas>
+
+  <header class="nav">
+    <a class="nav__mark" href="index.html" aria-label="Upmanyu Singh, home"><span>Upmanyu Singh</span><sup>©26</sup></a>
+    <nav class="nav__dock" aria-label="Primary">
+      <a class="nav__link" href="projects.html">Projects</a>
+      <a class="nav__link" href="design.html">Design</a>
+      <a class="nav__link" href="about.html">About</a>
+      <a class="nav__link" href="contact.html">Contact</a>
+    </nav>
+    <a class="btn btn--solid btn--small nav__cta" href="mailto:upmanyu.work@gmail.com" data-magnetic><span class="roll"><span
+          data-text="Hire me">Hire me</span></span></a>
+    <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="menu"><i></i><span>Menu</span></button>
+  </header>
+
+  <div class="menu" id="menu">
+    <ul class="menu__links">
+      <li><a href="index.html"><span class="label">00</span><span>Home</span></a></li>
+      <li><a href="projects.html"><span class="label">01</span><span>Projects</span></a></li>
+      <li><a href="design.html"><span class="label">02</span><span>Design</span></a></li>
+      <li><a href="about.html"><span class="label">03</span><span>About</span></a></li>
+      <li><a href="contact.html"><span class="label">04</span><span>Contact</span></a></li>
+    </ul>
+    <div class="menu__base label"><a href="mailto:upmanyu.work@gmail.com">upmanyu.work@gmail.com</a><span>Noida, India</span></div>
+  </div>
+
+  <main>
+
+    <!-- ── hero ─────────────────────────────────────────── -->
+    <section class="hero"
+      data-swarm='{"form":"orrery","x":0.5,"y":0.16,"size":0.58,"m":{"x":0.3,"y":0.5,"size":0.36,"alpha":0.55}}'>
+      <div class="wrap hero__inner">
+        <div class="hero__main">
+          <p class="label hero__eyebrow" data-reveal><span class="dot"></span>&ensp;CS student &nbsp;·&nbsp; ML &amp;
+            full-stack &nbsp;·&nbsp; Designer</p>
+          <h1 class="display hero__title" data-lines="intro">
+            <span class="hl"><span class="hl__in">Systems that</span></span>
+            <span class="hl"><span class="hl__in">solve <em>real</em></span></span>
+            <span class="hl"><span class="hl__in">problems.</span></span>
+          </h1>
+        </div>
+
+        <div class="hero__sub grid">
+          <div class="hero__pitch">
+            <p data-split>I build systems that solve real problems, and design the interfaces around them.</p>
+            <div class="hero__cta" data-reveal>
+              <a class="btn btn--solid" href="projects.html" data-magnetic><span class="roll"><span
+                    data-text="View projects">View projects</span></span></a>
+              <a class="btn" href="https://github.com/UpmanyuCodes" target="_blank" rel="noopener" data-magnetic><span
+                  class="roll"><span data-text="GitHub profile">GitHub profile</span></span></a>
+            </div>
+          </div>
+          <p class="label fig hero__fig" data-fig><b>Fig. 0</b><span>A small system. Not to scale.</span></p>
+        </div>
+
+        <div class="hero__base label" data-reveal>
+          <span class="hero__scroll"><i></i>Scroll</span>
+          <span>B.Tech CSE · JIIT, Noida</span>
+          <span>Noida, IN · <span data-clock>--:--</span> IST</span>
         </div>
       </div>
-      <div class="cs-card sr">
-        <p class="pj-cat">Python · Data</p>
-        <div class="pj-title">Chhaya-Drishti</div>
-        <p class="pj-desc">Analyzes Chandrayaan-2 data of the Moon's south pole to map elevation and slope, find
-          potential water-ice regions, and pick safe landing sites.</p>
-        <div class="cs-foot"><span class="tag">Chandrayaan-2</span><a
-            href="https://github.com/UpmanyuCodes/Chhaya-Drishti" class="pj-arrow" target="_blank"
-            rel="noopener">GitHub</a></div>
+    </section>
+
+    <!-- ── statement ────────────────────────────────────── -->
+    <section class="say" data-swarm='{"form":"dust","size":1.9,"alpha":0.2,"dot":0.8,"sway":0.5}'>
+      <div class="wrap grid">
+        <p class="label say__label" data-reveal>(01) — Hello</p>
+        <p class="lead say__text" data-scrub>I'm Upmanyu, a third-year computer science student at JIIT, Noida. I like
+          building things that solve real problems: machine learning for underwater robots, tools for hospitals and
+          metro rail, maps of the Moon's south pole. I also design, and it shows in how I build.</p>
+        <div class="say__notes">
+          <div class="note" data-reveal>
+            <p class="label label--muted">Now</p>
+            <p>Rebuilding AntiFoul-AI with FastAPI and Random Forest. IEEE paper in progress.</p>
+          </div>
+          <div class="note" data-reveal>
+            <p class="label label--muted">Looking for</p>
+            <p>SDE and ML internships.</p>
+          </div>
+          <a class="btn" href="about.html" data-reveal data-magnetic><span class="roll"><span data-text="About me">About
+                me</span></span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── selected projects ────────────────────────────── -->
+    <section class="work" id="work">
+      <div class="wrap">
+        <div class="opener label" data-reveal><span>(02) — Selected projects</span><span>04 of 08</span></div>
+      </div>
+
+      <article class="chapter"
+        data-swarm='{"form":"wave","x":0.46,"y":0.02,"size":0.5,"pitch":0.1,"sway":0.16,"m":{"x":0,"y":0.5,"size":0.42}}'>
+        <div class="wrap grid">
+          <div class="chapter__body">
+            <p class="label chapter__no" data-reveal><span class="spot">01</span> &nbsp;/&nbsp; Python · ML · FastAPI
+            </p>
+            <h2 class="title" data-split>AntiFoul-AI</h2>
+            <p class="body" data-split>Predicts biofouling risk for AUVs and ROVs from ocean data, then recommends Indian
+              traditional prevention methods. Rebuilding with FastAPI and Random Forest; IEEE paper in progress.</p>
+            <div class="chapter__foot" data-reveal>
+              <a class="btn" href="https://github.com/UpmanyuCodes/AntiFoul-AI-v2" target="_blank" rel="noopener"
+                data-magnetic><span class="roll"><span data-text="GitHub ↗">GitHub ↗</span></span></a>
+              <span class="tag label">In progress</span>
+            </div>
+          </div>
+          <p class="label fig chapter__fig" data-fig><b>Fig. 1</b><span>Ocean surface, sampled for fouling
+              risk.</span></p>
+        </div>
+      </article>
+
+      <article class="chapter"
+        data-swarm='{"form":"helix","x":0.46,"y":0,"size":0.6,"tilt":-0.32,"spin":0.4,"sway":0.04,"m":{"x":0,"y":0.5,"size":0.38}}'>
+        <div class="wrap grid">
+          <div class="chapter__body">
+            <p class="label chapter__no" data-reveal><span class="spot">02</span> &nbsp;/&nbsp; JavaScript · Node.js ·
+              Spring Boot</p>
+            <h2 class="title" data-split>HealSync</h2>
+            <p class="body" data-split>Patient-centric web platform that closes communication gaps in restorative
+              healthcare with a clear, interactive treatment journey.</p>
+            <div class="chapter__foot" data-reveal>
+              <a class="btn" href="https://github.com/UpmanyuCodes/HealSync" target="_blank" rel="noopener"
+                data-magnetic><span class="roll"><span data-text="GitHub ↗">GitHub ↗</span></span></a>
+              <span class="tag label">Hackathon finalist</span>
+            </div>
+          </div>
+          <p class="label fig chapter__fig" data-fig><b>Fig. 2</b><span>Two strands, patient and clinician,
+              joined.</span></p>
+        </div>
+      </article>
+
+      <article class="chapter"
+        data-swarm='{"form":"moon","x":0.46,"y":0.02,"size":0.62,"sway":0.1,"m":{"x":0,"y":0.5,"size":0.4}}'>
+        <div class="wrap grid">
+          <div class="chapter__body">
+            <p class="label chapter__no" data-reveal><span class="spot">03</span> &nbsp;/&nbsp; Python · Data</p>
+            <h2 class="title" data-split>Chhaya-Drishti</h2>
+            <p class="body" data-split>Analyzes Chandrayaan-2 data of the Moon's south pole to map elevation and slope,
+              find potential water-ice regions, and pick safe landing sites.</p>
+            <div class="chapter__foot" data-reveal>
+              <a class="btn" href="https://github.com/UpmanyuCodes/Chhaya-Drishti" target="_blank" rel="noopener"
+                data-magnetic><span class="roll"><span data-text="GitHub ↗">GitHub ↗</span></span></a>
+              <span class="tag label">Chandrayaan-2</span>
+            </div>
+          </div>
+          <p class="label fig chapter__fig" data-fig><b>Fig. 3</b><span>The Moon in shaded relief. Shadow is
+              data.</span></p>
+        </div>
+      </article>
+
+      <article class="chapter"
+        data-swarm='{"form":"pages","x":0.46,"y":0,"size":0.56,"yaw":-0.5,"pitch":0.16,"tilt":-0.06,"sway":0.14,"m":{"x":0,"y":0.5,"size":0.36}}'>
+        <div class="wrap grid">
+          <div class="chapter__body">
+            <p class="label chapter__no" data-reveal><span class="spot">04</span> &nbsp;/&nbsp; HTML · Automation</p>
+            <h2 class="title" data-split>Suchi-Patra</h2>
+            <p class="body" data-split>Automated document management for Kochi Metro Rail Limited: intelligent
+              organization, retrieval, and workflow automation to tackle document overload.</p>
+            <div class="chapter__foot" data-reveal>
+              <a class="btn" href="https://github.com/UpmanyuCodes/Suchi-Patra" target="_blank" rel="noopener"
+                data-magnetic><span class="roll"><span data-text="GitHub ↗">GitHub ↗</span></span></a>
+              <span class="tag label">Kochi Metro</span>
+            </div>
+          </div>
+          <p class="label fig chapter__fig" data-fig><b>Fig. 4</b><span>A stack of documents, indexed.</span></p>
+        </div>
+      </article>
+
+      <div class="wrap work__more" data-reveal>
+        <a class="btn btn--solid" href="projects.html" data-magnetic><span class="roll"><span
+              data-text="All 08 projects">All 08 projects</span></span></a>
+      </div>
+    </section>
+
+    <!-- ── design work, sideways ────────────────────────── -->
+    <section class="gallery" data-theme="ink" data-swarm='{"form":"dust","size":1.7,"alpha":0.22,"sway":0.5}'>
+      <div class="gallery__pin">
+        <div class="wrap gallery__top label"><span>(03) — Design work</span><span><span data-gallery-count>01</span> /
+            07</span></div>
+        <div class="gallery__track">
+          <div class="gallery__intro">
+            <h2 class="title">I also<br /><em>design.</em></h2>
+            <p class="body">Posters, product UI, and official merchandise for DebSoc, IIT Bombay.</p>
+            <p class="label gallery__hint"><span class="dot"></span>&ensp;Keep scrolling</p>
+          </div>
+
+          <figure class="card">
+            <a class="card__frame" href="design.html" data-cursor="View" style="--ar:1080/1350"><img
+                src="../assets/Lambo.jpg" alt="Liberty Walk #58, automotive poster" loading="lazy" decoding="async" /></a>
+            <figcaption class="label"><span class="spot">01</span><span>Liberty Walk #58</span><span
+                class="label--muted">Automotive poster</span></figcaption>
+          </figure>
+          <figure class="card card--low">
+            <a class="card__frame" href="design.html" data-cursor="View" style="--ar:1608/978"><img
+                src="../assets/Nike.jpg" alt="Nike Air Max 90, interface concept" loading="lazy" decoding="async" /></a>
+            <figcaption class="label"><span class="spot">02</span><span>Nike Air Max 90</span><span
+                class="label--muted">UI / web design</span></figcaption>
+          </figure>
+          <figure class="card">
+            <a class="card__frame" href="design.html" data-cursor="View" style="--ar:596/843"><img
+                src="../assets/Movie.jpg" alt="Ballerina cast poster" loading="lazy" decoding="async" /></a>
+            <figcaption class="label"><span class="spot">03</span><span>Ballerina cast poster</span><span
+                class="label--muted">Movie poster</span></figcaption>
+          </figure>
+          <figure class="card card--low">
+            <a class="card__frame" href="design.html" data-cursor="View" style="--ar:1728/1117"><img
+                src="../assets/Apple.jpg" alt="AirPods Max 2, web UI concept" loading="lazy" decoding="async" /></a>
+            <figcaption class="label"><span class="spot">04</span><span>AirPods Max 2, web UI</span><span
+                class="label--muted">Product landing page</span></figcaption>
+          </figure>
+          <figure class="card">
+            <a class="card__frame" href="design.html" data-cursor="View" style="--ar:1/1"><img src="../assets/Boat.jpg"
+                alt="boAt lifestyle campaign" loading="lazy" decoding="async" /></a>
+            <figcaption class="label"><span class="spot">05</span><span>boAt, lifestyle campaign</span><span
+                class="label--muted">Music / visual design</span></figcaption>
+          </figure>
+          <figure class="card card--low">
+            <a class="card__frame" href="design.html" data-cursor="View" style="--ar:1728/1117"><img
+                src="../assets/Apple2.jpg" alt="AirPods Max 2, campaign" loading="lazy" decoding="async" /></a>
+            <figcaption class="label"><span class="spot">06</span><span>AirPods Max 2, campaign</span><span
+                class="label--muted">Product ad design</span></figcaption>
+          </figure>
+          <figure class="card">
+            <a class="card__frame" href="design.html" data-cursor="View" style="--ar:1/1"><img src="../assets/merch.jpg"
+                alt="Official tee for DebSoc, IIT Bombay" loading="lazy" decoding="async" /></a>
+            <figcaption class="label"><span class="spot">07</span><span>Official tee, DebSoc</span><span
+                class="label--muted">IIT Bombay merchandise</span></figcaption>
+          </figure>
+
+          <a class="gallery__end" href="design.html" data-cursor="Open">
+            <span class="title">All design<br />work <span class="spot">↗</span></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── for the record ───────────────────────────────── -->
+    <section class="facts" data-swarm='{"form":"dust","size":1.5,"alpha":0.16,"sway":0.5}'>
+      <div class="wrap">
+        <div class="opener label" data-reveal><span>(04) — For the record</span><span>2025 — 2026</span></div>
+        <ul class="facts__list">
+          <li class="fact" data-reveal>
+            <p class="fact__big">20<span>/524</span></p>
+            <p class="fact__text">Top 20 of 524 teams at the Indo-Israeli Hackathon 2025.</p>
+          </li>
+          <li class="fact" data-reveal>
+            <p class="fact__big">IIT<span>-B</span></p>
+            <p class="fact__text">Official merchandise designer for DebSoc, IIT Bombay.</p>
+          </li>
+          <li class="fact" data-reveal>
+            <p class="fact__big">IEEE</p>
+            <p class="fact__text">Paper in progress on AntiFoul-AI, biofouling prediction for underwater vehicles.</p>
+          </li>
+        </ul>
+      </div>
+
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee__row" data-marquee="1">
+          <div class="marquee__set"><span>Machine Learning</span><i></i><span><em>Full-Stack</em></span><i></i><span>React</span><i></i><span><em>FastAPI</em></span><i></i><span>Data
+              Structures</span><i></i><span><em>C++</em></span><i></i></div>
+        </div>
+        <div class="marquee__row" data-marquee="-1">
+          <div class="marquee__set"><span><em>Python</em></span><i></i><span>UI Design</span><i></i><span><em>Brand
+                Identity</em></span><i></i><span>Poster Design</span><i></i><span><em>Node.js</em></span><i></i><span>MongoDB</span><i></i>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ── footer ─────────────────────────────────────────── -->
+  <footer class="foot" data-theme="ink"
+    data-swarm='{"form":"orrery","x":0.52,"y":0.34,"size":0.46,"alpha":0.75,"m":{"x":0.4,"y":0.56,"size":0.34,"alpha":0.3}}'>
+    <div class="wrap">
+      <p class="label label--muted" data-reveal>(Next) — Open to SDE &amp; ML internships, collabs and design work</p>
+      <a class="foot__cta display" href="contact.html" data-lines data-cursor="Say hello">
+        <span class="hl"><span class="hl__in">Let's build</span></span>
+        <span class="hl"><span class="hl__in"><em>together</em> <span class="arr">↗</span></span></span>
+      </a>
+      <div class="foot__grid grid">
+        <div class="foot__col foot__col--wide" data-reveal>
+          <p class="label">Write to me</p>
+          <a class="foot__mail link" href="mailto:upmanyu.work@gmail.com">upmanyu.work@gmail.com</a>
+        </div>
+        <div class="foot__col" data-reveal>
+          <p class="label">Elsewhere</p>
+          <a class="link" href="https://github.com/UpmanyuCodes" target="_blank" rel="noopener">GitHub <span
+              class="arr">↗</span></a>
+          <a class="link" href="https://www.linkedin.com/in/upmanyu-singh30" target="_blank" rel="noopener">LinkedIn
+            <span class="arr">↗</span></a>
+          <a class="link" href="https://www.instagram.com/upmanyu_30/" target="_blank" rel="noopener">Instagram <span
+              class="arr">↗</span></a>
+        </div>
+        <div class="foot__col" data-reveal>
+          <p class="label">Paperwork</p>
+          <a class="link"
+            href="https://drive.google.com/drive/folders/13ZjSsxk1_tS-3kvgzsDoisw8NKGvD4iZ?usp=drive_link"
+            target="_blank" rel="noopener">Resume <span class="arr">↗</span></a>
+          <span>Noida, India · <span data-clock>--:--</span> IST</span>
+        </div>
+      </div>
+      <div class="foot__base label">
+        <span>© 2026 Upmanyu Singh</span>
+        <span>Code &amp; Design</span>
+        <a href="#top" data-top>Back to top ↑</a>
       </div>
     </div>
-  </section>
-  <div class="div-line"></div>
-  <section id="more">
-    <p class="about-body sr">I'm a third-year CSE student at JIIT, Noida, aiming for SDE and ML internships. I also
-      design: posters, product UI, and official merchandise for DebSoc, IIT Bombay.</p>
-    <div class="socials sr"><a class="soc" href="about.html">About me</a><a class="soc" href="design.html">Design
-        work</a><a class="soc" href="contact.html">Contact</a></div>
-  </section>
-  <footer>
-    <div class="foot-l"><span>U</span>PMANYU SINGH</div>
-    <div class="foot-r">© 2026 — Code &amp; Design</div>
   </footer>
-  <script src="../js/main.js"></script>
+
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/lenis@1.3.4/dist/lenis.min.js"></script>
+  <script defer src="../js/forms.js"></script>
+  <script defer src="../js/swarm.js"></script>
+  <script defer src="../js/main.js"></script>
 </body>
 
 </html>
